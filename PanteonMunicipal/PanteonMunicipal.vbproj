@@ -108,6 +108,30 @@
     <Compile Include="forms\Exhumacion\Exhumacion_consultas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Add.Designer.vb">
+      <DependentUpon>FosaComun_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Consultar.Designer.vb">
+      <DependentUpon>FosaComun_Consultar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Consultar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Details.Designer.vb">
+      <DependentUpon>FosaComun_Details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Details.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Edit.Designer.vb">
+      <DependentUpon>FosaComun_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Fosa_comun\FosaComun_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Inhumanacion\Inhumanacion_consultas.Designer.vb">
       <DependentUpon>Inhumanacion_consultas.vb</DependentUpon>
     </Compile>
@@ -188,6 +212,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Exhumacion\Exhumacion_consultas.resx">
       <DependentUpon>Exhumacion_consultas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Fosa_comun\FosaComun_Add.resx">
+      <DependentUpon>FosaComun_Add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Fosa_comun\FosaComun_Consultar.resx">
+      <DependentUpon>FosaComun_Consultar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Fosa_comun\FosaComun_Details.resx">
+      <DependentUpon>FosaComun_Details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Fosa_comun\FosaComun_Edit.resx">
+      <DependentUpon>FosaComun_Edit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Inhumanacion\Inhumanacion_consultas.resx">
       <DependentUpon>Inhumanacion_consultas.vb</DependentUpon>

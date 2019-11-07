@@ -30,11 +30,13 @@
     End Sub
 
     Private Sub FosaComunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FosaComunToolStripMenuItem.Click
-        f.Mensaje(":D", MsgBoxStyle.Information)
+        f.AddForm_Desktop(FosaComun_Consultar, Desktop)
+        FosaComun_Consultar.loader()
     End Sub
 
     Private Sub FosaComunToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs) Handles FosaComunToolStripMenuItem.DoubleClick
-        f.Mensaje(":D", MsgBoxStyle.Information)
+        f.AddForm_Desktop(FosaComun_Consultar, Desktop)
+        FosaComun_Consultar.loader()
     End Sub
 
     Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
@@ -43,5 +45,9 @@
 
     Private Sub ArchivoToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.DoubleClick
         f.DesktopClean(Desktop)
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        Application.ExitThread()
     End Sub
 End Class

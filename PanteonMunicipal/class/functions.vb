@@ -7,6 +7,7 @@ Public Class functions
     Dim Db As New Conexion
     Dim RaizData As String = "C:\PanteonData\"
     Dim RaizData_actadefuncion As String = "actas_defuncion\"
+    Dim RaizData_SolicitudFiscalia As String = "solicitud_fiscalia\"
 
     Public Sub ExistData()
         If Directory.Exists(RaizData) = False Then
@@ -15,6 +16,10 @@ Public Class functions
 
         If Directory.Exists(RaizData + RaizData_actadefuncion) = False Then
             My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_actadefuncion)
+        End If
+
+        If Directory.Exists(RaizData + RaizData_SolicitudFiscalia) = False Then
+            My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_SolicitudFiscalia)
         End If
     End Sub
 
@@ -131,6 +136,68 @@ Public Class functions
         Return r
     End Function
 
+    Public Function FosaComunAdd(
+        ByVal TxtFolio As TextBox,
+        ByVal TxtFuneraria As TextBox,
+        ByVal TxtSexo As ComboBox,
+        ByVal TxtUbicacion As TextBox,
+        ByVal TxtFiscalia As String)
+
+        Dim url_pdf As String = ""
+        Dim r As Boolean = False
+
+        If String.IsNullOrEmpty(TxtFiscalia) = False Then
+            url_pdf = DateTime.Now.ToString.Replace(":", "").Replace(" ", "").Replace("/", "") + ".pdf"
+            My.Computer.FileSystem.CopyFile(TxtFiscalia, RaizData + RaizData_SolicitudFiscalia + url_pdf)
+        End If
+
+
+
+        If Db.Ejecutar("INSERT INTO `fosa_comun` (`TxtFolio`, `TxtFuneraria`, `TxtSexo`, `TxtUbicacion`, `TxtFiscalia`) VALUES ('" + TxtFolio.Text + "', '" + TxtFuneraria.Text + "', '" + TxtSexo.Text + "', '" + TxtUbicacion.Text + "', '" + url_pdf + "');") Then
+            TxtFolio.Text = ""
+            TxtFuneraria.Text = ""
+            TxtSexo.SelectedIndex = 0
+            TxtUbicacion.Text = ""
+            TxtFiscalia = ""
+            r = True
+            Mensaje("Agregado en fosa comun", MessageBoxIcon.Information)
+        Else
+            Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
+        End If
+        Return r
+    End Function
+
+    Public Function FosaComunUpdate(
+        ByVal TxtFolio As TextBox,
+        ByVal TxtFuneraria As TextBox,
+        ByVal TxtSexo As ComboBox,
+        ByVal TxtUbicacion As TextBox,
+        ByVal TxtFiscalia As String,
+        ByVal item As String)
+
+        Dim url_pdf As String = ""
+        Dim sql As String
+        Dim r As Boolean = False
+
+        If String.IsNullOrEmpty(TxtFiscalia) = False Then
+            url_pdf = DateTime.Now.ToString.Replace(":", "").Replace(" ", "").Replace("/", "") + ".pdf"
+            My.Computer.FileSystem.CopyFile(TxtFiscalia, RaizData + RaizData_SolicitudFiscalia + url_pdf)
+            sql = "UPDATE `fosa_comun` SET `TxtFolio` = '" + TxtFolio.Text + "', `TxtFuneraria` = '" + TxtFuneraria.Text + "', `TxtSexo` = '" + TxtSexo.Text + "', `TxtUbicacion` = '" + TxtUbicacion.Text + "', `TxtFiscalia` = '" + url_pdf + "' WHERE `fosa_comun`.`TxtFolio` = '" + item + "';"
+        Else
+            sql = "UPDATE `fosa_comun` SET `TxtFolio` = '" + TxtFolio.Text + "', `TxtFuneraria` = '" + TxtFuneraria.Text + "', `TxtSexo` = '" + TxtSexo.Text + "', `TxtUbicacion` = '" + TxtUbicacion.Text + "' WHERE `fosa_comun`.`TxtFolio` = '" + item + "';"
+        End If
+
+
+
+        If Db.Ejecutar(sql) Then
+            r = True
+            Mensaje("Informacion actualizada", MessageBoxIcon.Information)
+        Else
+            Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
+        End If
+        Return r
+    End Function
+
     Public Function FechaFormatDB(ByVal d As DateTimePicker) As String
         Return d.Value.Date.ToString("yyyy-MM-dd")
     End Function
@@ -184,6 +251,33 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+        DataGridView_Model(t)
+    End Sub
+
+    Public Sub FosaComun_Consultas(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("folio", "FOLIO")
+        t.Columns.Add("funeraria", "FUNERARIA")
+        t.Columns.Add("sex", "SEXO")
+        t.Columns.Add("location", "UBICACION")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+
+                Dim location As String = ""
+                If dato.GetString(3).length > 25 Then
+                    location = dato.GetString(3).SubString(0, 25) + "..."
+                Else
+                    location = dato.GetString(3)
+                End If
+
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), location)
             Loop
         End If
         DataGridView_Model(t)
@@ -319,6 +413,23 @@ Public Class functions
 
     End Sub
 
+    Public Sub FosaComunDetails(ByVal item As String)
+        Dim dato = Db.Consult("SELECT * FROM `fosa_comun` where TxtFolio = '" + item + "' ")
+
+        If dato.Read() Then
+            Dim form As New FosaComun_Details
+
+            form.TxtFolio.Text = "NO. FOLIO: " + item
+            form.TxtFuneraria.Text = "FUNERARIA: " + dato.GetString(1)
+            form.TxtSexo.Text = "SEXO: " + dato.GetString(2)
+            form.TxtUbicacion.Text = dato.GetString(3)
+            form._pdf.src = RaizData + RaizData_SolicitudFiscalia + dato.GetString(4)
+
+            form.Show()
+        End If
+
+    End Sub
+
     Public Sub InhumanacionEdit(ByVal item As String)
         Dim dato = Db.Consult("SELECT * FROM inhumaciones WHERE id = '" + item + "' ")
 
@@ -337,6 +448,36 @@ Public Class functions
             form.TxtNombreResponsable.Text = dato.GetString(11)
             form.TxtDireccionResponsable.Text = dato.GetString(12)
             form.TxtTelefonoResponsable.Text = dato.GetString(13)
+            form.Show()
+        End If
+
+    End Sub
+
+    Public Sub FosaComunEdit(ByVal item As String)
+        Dim dato = Db.Consult("SELECT * FROM  fosa_comun WHERE TxtFolio = '" + item + "' ")
+
+        If dato.Read() Then
+            Dim form As New FosaComun_Edit
+
+            form.item = dato.GetString(0)
+
+            form.TxtFolio.Text = dato.GetString(0)
+            form.TxtFuneraria.Text = dato.GetString(1)
+
+            Dim cont As Int32 = 0
+            Dim sex As String = dato.GetString(2)
+
+            For Each i As Object In form.TxtSexo.Items
+                If i = sex Then
+                    form.TxtSexo.SelectedIndex = cont
+                End If
+                cont = cont + 1
+            Next
+
+            form.TxtUbicacion.Text = dato.GetString(3)
+            'form.SolicitudFiscalia = dato.GetString(4)
+            form._pdf.src = RaizData + RaizData_SolicitudFiscalia + form.SolicitudFiscalia
+
             form.Show()
         End If
 
@@ -387,6 +528,10 @@ Public Class functions
 
     Public Function Inhumanaciondelete(ByVal item As Int32) As Boolean
         Return Db.Ejecutar("delete from inhumaciones where id = " + item.ToString + " ")
+    End Function
+
+    Public Function FosaComundelete(ByVal item As String) As Boolean
+        Return Db.Ejecutar("delete from fosa_comun where TxtFolio = '" + item + "' ")
     End Function
 
     Public Function Exhumanaciondelete(ByVal item As String) As Boolean

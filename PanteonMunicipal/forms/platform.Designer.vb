@@ -70,7 +70,7 @@ Partial Class platform
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(139, 36)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(169, 36)
         Me.ToolStripMenuItem2.Text = "Salir"
         '
         'ArchivoToolStripMenuItem
