@@ -35,8 +35,10 @@ Partial Class platform
         Me.ConsultasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FosaComunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdquisicionDeEspacioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LugaresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevaSeccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AgregarLugarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,7 +72,7 @@ Partial Class platform
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(169, 36)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(139, 36)
         Me.ToolStripMenuItem2.Text = "Salir"
         '
         'ArchivoToolStripMenuItem
@@ -144,7 +146,7 @@ Partial Class platform
         '
         'AdquisicionDeEspacioToolStripMenuItem
         '
-        Me.AdquisicionDeEspacioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.ConsultasToolStripMenuItem3})
+        Me.AdquisicionDeEspacioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultasToolStripMenuItem3, Me.LugaresToolStripMenuItem})
         Me.AdquisicionDeEspacioToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
         Me.AdquisicionDeEspacioToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.AdquisicionDeEspacioToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
@@ -152,17 +154,30 @@ Partial Class platform
         Me.AdquisicionDeEspacioToolStripMenuItem.Size = New System.Drawing.Size(326, 36)
         Me.AdquisicionDeEspacioToolStripMenuItem.Text = "ADQUISICION DE ESPACIO"
         '
-        'AgregarToolStripMenuItem
-        '
-        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
-        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.AgregarToolStripMenuItem.Text = "Agregar"
-        '
         'ConsultasToolStripMenuItem3
         '
         Me.ConsultasToolStripMenuItem3.Name = "ConsultasToolStripMenuItem3"
         Me.ConsultasToolStripMenuItem3.Size = New System.Drawing.Size(197, 36)
         Me.ConsultasToolStripMenuItem3.Text = "Consultas"
+        '
+        'LugaresToolStripMenuItem
+        '
+        Me.LugaresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSeccionToolStripMenuItem, Me.AgregarLugarToolStripMenuItem})
+        Me.LugaresToolStripMenuItem.Name = "LugaresToolStripMenuItem"
+        Me.LugaresToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.LugaresToolStripMenuItem.Text = "Lugares"
+        '
+        'NuevaSeccionToolStripMenuItem
+        '
+        Me.NuevaSeccionToolStripMenuItem.Name = "NuevaSeccionToolStripMenuItem"
+        Me.NuevaSeccionToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
+        Me.NuevaSeccionToolStripMenuItem.Text = "Nueva seccion"
+        '
+        'AgregarLugarToolStripMenuItem
+        '
+        Me.AgregarLugarToolStripMenuItem.Name = "AgregarLugarToolStripMenuItem"
+        Me.AgregarLugarToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
+        Me.AgregarLugarToolStripMenuItem.Text = "Agregar lugar"
         '
         'UsuariosToolStripMenuItem
         '
@@ -227,7 +242,6 @@ Partial Class platform
     Friend WithEvents ConsultasToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents FosaComunToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AdquisicionDeEspacioToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultasToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NuevoToolStripMenuItem1 As ToolStripMenuItem
@@ -235,4 +249,7 @@ Partial Class platform
     Friend WithEvents Desktop As Panel
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents LugaresToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents NuevaSeccionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AgregarLugarToolStripMenuItem As ToolStripMenuItem
 End Class

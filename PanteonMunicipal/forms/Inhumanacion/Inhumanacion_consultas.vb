@@ -92,4 +92,13 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         f.InhumanacionPagar(item)
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If f.AsignarCheck(item) = False Then
+            f.AsignarEspacio(item)
+        Else
+            f.Mensaje("Este elemento ya contiene un espacio", MsgBoxStyle.Critical)
+        End If
+
+    End Sub
 End Class

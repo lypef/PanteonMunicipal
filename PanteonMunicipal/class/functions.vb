@@ -9,6 +9,11 @@ Public Class functions
     Dim RaizData_actadefuncion As String = "actas_defuncion\"
     Dim RaizData_SolicitudFiscalia As String = "solicitud_fiscalia\"
 
+    Public Shared ListSecciones As New List(Of Integer)
+    Public Shared ListSecciones_Lugares As New List(Of Integer)
+    Public Shared ListSecciones_LugaresAsignar As New List(Of Integer)
+    Public Shared ListSecciones_LugaresAsignados As New List(Of Integer)
+
     Public Sub ExistData()
         If Directory.Exists(RaizData) = False Then
             My.Computer.FileSystem.CreateDirectory(RaizData)
@@ -254,6 +259,26 @@ Public Class functions
             Loop
         End If
         DataGridView_Model(t)
+    End Sub
+
+
+    Public Sub Espacios_SeccionesGET(ByVal sql As String, ByVal t As DataGridView)
+        ListSecciones.Clear()
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("nombre", "NOMBRE SECCION")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(1))
+                ListSecciones.Add(dato.GetString(0))
+            Loop
+        End If
+        DataGridView_Model(t)
+        t.ReadOnly = False
     End Sub
 
     Public Sub FosaComun_Consultas(ByVal sql As String, ByVal t As DataGridView)
@@ -526,6 +551,23 @@ Public Class functions
 
     End Sub
 
+    Public Function EspaciosLugarReturn_Asignados(ByVal item As Int32) As Integer
+        Dim r As Integer = 0
+
+        Dim dato = Db.Consult("SELECT espacios_secciones_lugares FROM espacios_asignacion WHERE id = '" + item.ToString + "' ")
+
+        If dato.Read() Then
+            r = Integer.Parse(dato.GetString(0))
+        End If
+
+        Return r
+    End Function
+
+    Public Function EspaciosAsignados_Delete(ByVal item As Int32) As Boolean
+        Espacios_AsignadosUpdate(EspaciosLugarReturn_Asignados(item))
+        Return Db.Ejecutar("delete from espacios_asignacion where id = " + item.ToString + " ")
+    End Function
+
     Public Function Inhumanaciondelete(ByVal item As Int32) As Boolean
         Return Db.Ejecutar("delete from inhumaciones where id = " + item.ToString + " ")
     End Function
@@ -620,6 +662,27 @@ Public Class functions
         Return r
     End Function
 
+    Public Function Espacios_SeccionUpdate(ByVal txt As String, ByVal id As Int32)
+        Return Db.Ejecutar("UPDATE espacios_secciones SET nombre = '" + txt.ToString + "' WHERE id = '" + ListSecciones(id).ToString + "' ;")
+    End Function
+
+    Public Function Espacios_AsignadosUpdate(ByVal id As Int32)
+        Return Db.Ejecutar("UPDATE `espacios_secciones_lugares` SET `ocupado` = '0' WHERE `espacios_secciones_lugares`.`id` = '" + id.ToString + "';")
+    End Function
+
+    Public Function Espacios_Seccion_LugaresUpdate(ByVal txt As String, ByVal id As Int32)
+        Return Db.Ejecutar("UPDATE espacios_secciones_lugares SET nombre = '" + txt.ToString + "' WHERE id = '" + ListSecciones_Lugares(id).ToString + "' ;")
+    End Function
+
+    Public Function Espacios_SeccionaDelete(ByVal id As Integer)
+        Return Db.Ejecutar("DELETE FROM espacios_secciones WHERE id = '" + ListSecciones(id).ToString + "' ;")
+    End Function
+
+    Public Function Espacios_Secciona_LugaresDelete(ByVal id As Integer)
+        Return Db.Ejecutar("DELETE FROM espacios_secciones_lugares WHERE id = " + ListSecciones_Lugares(id).ToString + " ;")
+        Return True
+    End Function
+
     Public Sub InhumanacionPagar(ByVal item As String)
         Dim dato = Db.Consult("SELECT * FROM inhumaciones WHERE id = '" + item + "' ")
 
@@ -655,6 +718,10 @@ Public Class functions
         End If
 
         Return r
+    End Function
+
+    Public Function Espacios_SeccionAdd(Txt As TextBox)
+        Return Db.Ejecutar("INSERT INTO `espacios_secciones` (`id`, `nombre`) VALUES (NULL, '" + Txt.Text + "');")
     End Function
 
     Public Function IsDecimal(ByVal numero As TextBox) As Boolean
@@ -779,6 +846,18 @@ Public Class functions
         Return r
     End Function
 
+    Public Function AsignacionEspacio_ReturnLastID() As Integer
+        Dim r As Integer = 0
+
+        Dim dato = Db.Consult("SELECT id FROM espacios_asignacion ORDER by ID DESC LIMIT 1;")
+
+        If dato.Read() Then
+            r = Integer.Parse(dato.GetString(0))
+        End If
+
+        Return r
+    End Function
+
     Public Sub Inhumanaciones_Pagos(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -827,5 +906,286 @@ Public Class functions
         End If
         Return r
     End Function
+
+    Public Sub Combobox_Secciones(ByVal c As ComboBox)
+        c.Items.Clear()
+        ListSecciones.Clear()
+
+        Dim dato = Db.Consult("SELECT * FROM `espacios_secciones` order by nombre asc")
+
+        Do While dato.Read()
+            ListSecciones.Add(dato.GetString(0))
+            c.Items.Add(dato.GetString(1))
+        Loop
+        If c.Items.Count > 0 Then
+            c.SelectedIndex = 0
+        End If
+    End Sub
+
+    Public Sub Combobox_LugaresAndSecciones(ByVal c As ComboBox)
+        Dim Db_temp As New Conexion
+        c.Items.Clear()
+        ListSecciones_LugaresAsignar.Clear()
+
+        Dim dato = Db_temp.Consult("SELECT l.id, s.nombre, l.nombre FROM espacios_secciones s, espacios_secciones_lugares l where l.seccion = s.id and l.ocupado = 0 order by s.nombre asc")
+
+        Do While dato.Read()
+            ListSecciones_LugaresAsignar.Add(dato.GetString(0))
+            c.Items.Add(dato.GetString(1) + " - " + dato.GetString(2))
+        Loop
+        If c.Items.Count > 0 Then
+            c.SelectedIndex = 0
+        End If
+    End Sub
+
+    Public Function Espacios_Seccion_LugaresAdd(TxtNombre As TextBox, c As ComboBox)
+        Dim r As Boolean = False
+
+        If String.IsNullOrEmpty(TxtNombre.Text) = False Then
+            r = Db.Ejecutar("INSERT INTO `espacios_secciones_lugares` (`id`, `seccion`, `nombre`, `ocupado`) VALUES (NULL, '" + ListSecciones(c.SelectedIndex).ToString + "', '" + TxtNombre.Text + "', '0');")
+        End If
+
+        Return r
+    End Function
+
+    Public Sub Espacios_SeccionesLugaresGET(ByVal sql As String, ByVal t As DataGridView)
+        ListSecciones_Lugares.Clear()
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("seccion", "SECCION")
+        t.Columns.Add("lugar", "LUGAR")
+        t.Columns.Add("status", "ESTATUS")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                ListSecciones_Lugares.Add(dato.GetString(0))
+                t.Rows.Add(dato.GetString(1), dato.GetString(2), dato.GetString(3))
+            Loop
+        End If
+        DataGridView_Model(t)
+        t.ReadOnly = False
+    End Sub
+
+    Public Sub AsignarEspacio(ByVal item As String)
+        Dim dato = Db.Consult("SELECT * FROM inhumaciones WHERE id = '" + item + "' ")
+
+        If dato.Read() Then
+
+            Dim form As New Espacios_Agregar
+            form._loader()
+
+            Combobox_LugaresAndSecciones(form.TxtCombo)
+            form.item = item
+
+            form.TxtNombre.Text = dato.GetString(1)
+            form.TxtNombre.Enabled = False
+
+            form.TxtSexo.Text = dato.GetString(2)
+            form.TxtSexo.Enabled = False
+
+            form.TxtZona.Text = dato.GetString(3)
+            form.TxtZona.Enabled = False
+
+            form.TxtPerpetuidad.Text = dato.GetString(4)
+            form.TxtPerpetuidad.Enabled = False
+
+            form.TxtNoTumba.Text = dato.GetString(5)
+            form.TxtNoTumba.Enabled = False
+
+            form.TxtFechaNacimiento.Text = dato.GetString(6)
+            form.TxtFechaNacimiento.Enabled = False
+
+            form.TxtFechaDefunsion.Text = dato.GetString(7)
+            form.TxtFechaDefunsion.Enabled = False
+
+            form.TxtFechaRegistro.Text = dato.GetString(8)
+            form.TxtFechaRegistro.Enabled = False
+
+            form.TxtTipoTumba.Text = dato.GetString(9)
+            form.TxtTipoTumba.Enabled = False
+
+            form.TxtNombreResponsable.Text = dato.GetString(11)
+            form.TxtNombreResponsable.Enabled = False
+
+            form.TxtDireccionResponsable.Text = dato.GetString(12)
+            form.TxtDireccionResponsable.Enabled = False
+
+            form.TxtTelefonoResponsable.Text = dato.GetString(13)
+            form.TxtTelefonoResponsable.Enabled = False
+
+            form.TxtCaducidad.Value = DateTime.Now.AddYears(7)
+
+            form.Show()
+        End If
+
+    End Sub
+
+    Public Function EspaciosAsignacionAdd(
+        ByVal inhumacion As String,
+        ByVal TxtCombo As ComboBox,
+        ByVal TxtModalidad As TextBox,
+        ByVal TxtObservaciones As TextBox,
+        ByVal TxtCosto As TextBox,
+        ByVal TxtCaducidad As DateTimePicker
+    )
+        Dim r = False
+
+        If String.IsNullOrEmpty(TxtModalidad.Text) = False And String.IsNullOrEmpty(TxtObservaciones.Text) = False Then
+            If Db.Ejecutar("
+            UPDATE `espacios_secciones_lugares` SET `ocupado` = '1' WHERE `espacios_secciones_lugares`.`id` = '" + ListSecciones_LugaresAsignar(TxtCombo.SelectedIndex).ToString + "';
+            INSERT INTO `espacios_asignacion` (`inhumacion`, `espacios_secciones_lugares`, `TxtModalidad`, `TxtObservaciones`, `TxtCosto`, `TxtCaducidad`) VALUES ('" + inhumacion + "', '" + ListSecciones_LugaresAsignar(TxtCombo.SelectedIndex).ToString + "', '" + TxtModalidad.Text + "', '" + TxtObservaciones.Text + "', '" + TxtCosto.Text + "', '" + FechaFormatDB(TxtCaducidad) + "' );") Then
+                r = True
+                Mensaje("Asignacion agregada", MessageBoxIcon.Information)
+            Else
+                Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
+            End If
+        Else
+            Mensaje("Todos los campos deben estar llenos", MessageBoxIcon.Warning)
+        End If
+
+        Return r
+    End Function
+
+    Public Sub ReportAsignacionEspacioPago(ByVal id As Int32)
+        Dim details As String = ""
+        Dim t As New DataGridView
+
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult("SELECT a.id, a.TxtModalidad, a.TxtObservaciones, a.TxtCaducidad, a.TxtCosto, i.TxtPerpetuidad, i.TxtNombre, i.TxtSexo, i.TxtZona, i.TxtNoTumba, i.TxtTipoTumba, i.TxtNombreResponsable, s.nombre , l.nombre FROM espacios_asignacion a, inhumaciones i, espacios_secciones_lugares l, espacios_secciones s  WHERE a.inhumacion = i.id and a.espacios_secciones_lugares = l.id and l.seccion = s.id and a.id = '" + id.ToString + "' ")
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("descripcion", "MODALIDAD")
+        t.Columns.Add("concepto", "OBSERVACIONES")
+        t.Columns.Add("fecha", "F. CADUCIDAD")
+        t.Columns.Add("monto", "M. PAGO")
+        t.Columns.Add("preseidente", "PERPETUIDAD")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                details += vbLf + "RESPONSABLE: " + dato.GetString(11)
+                details += vbLf + "DIFUNTO: " + dato.GetString(6)
+                details += vbLf + "SEXO: " + dato.GetString(7)
+                details += vbLf + "ZONA: " + dato.GetString(8)
+                details += vbLf + "NO. TUMBA: " + dato.GetString(9)
+                details += vbLf + "TIPO TUMBA: " + dato.GetString(10)
+                details += vbLf + "LUGAR FISICO ASIGNADO: " + dato.GetString(12) + " - " + dato.GetString(13)
+
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), "$ " + dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+        DataGridView_Model(t)
+
+        'Se genera report
+        Dim filename = RaizData + "\report_tmp.pdf"
+
+        Dim doc = New iTextSharp.text.Document(iTextSharp.text.PageSize.LETTER)
+
+
+        Dim writer = iTextSharp.text.pdf.PdfWriter.GetInstance(doc, New FileStream(filename, FileMode.Create))
+        doc.AddTitle("REPORTE")
+        doc.AddCreator("ItSH")
+        doc.Open()
+
+        Dim _standardFontTitle = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFontSubTitle = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.BOLDITALIC, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFont = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)
+        Dim _standardFontCell = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK)
+
+        doc.Add(New iTextSharp.text.Paragraph("SISTEM DEFUNSION", _standardFontTitle))
+        doc.Add(New iTextSharp.text.Paragraph("DOCUMENTO: COMPROBANTE DE PAGO ESPACIO ASIGNADO", _standardFontSubTitle))
+        doc.Add(New iTextSharp.text.Paragraph("FECHA Y HORA DE GENERACION: " + DateTime.Now.ToString, _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("DIRECCION: " + "DIRECCION PENDIENTE", _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("RFC: " + "XAXX010101000", _standardFont))
+        doc.Add(New iTextSharp.text.Paragraph("USUARIO QUE GENERO: " + "USUARIO", _standardFont))
+
+        doc.Add(iTextSharp.text.Chunk.NEWLINE)
+
+        Dim tabla = New iTextSharp.text.pdf.PdfPTable(t.ColumnCount)
+        tabla.WidthPercentage = 100
+
+        'Adding Header row
+        For Each column As DataGridViewColumn In t.Columns
+            Dim cell As New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase(column.HeaderText.ToUpper, _standardFontTitle))
+            tabla.AddCell(cell)
+        Next
+
+        'Adding DataRow
+        For Each row As DataGridViewRow In t.Rows
+            For Each cell As DataGridViewCell In row.Cells
+                If String.IsNullOrEmpty(cell.Value) = False Then
+                    Dim tmp = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase(cell.Value.ToString(), _standardFontCell))
+                    tabla.AddCell(tmp)
+                End If
+            Next
+        Next
+
+        Dim ClId = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase("CONCEPTO", _standardFont))
+        ClId.BorderWidth = 0
+        ClId.BorderWidthBottom = 0.75F
+
+
+        tabla.AddCell(ClId)
+
+        ClId = New iTextSharp.text.pdf.PdfPCell(New iTextSharp.text.Phrase("ssssss", _standardFont))
+        ClId.BorderWidth = 0
+        tabla.AddCell(ClId)
+
+        doc.Add(tabla)
+
+        Dim _FontDetails = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.ITALIC, iTextSharp.text.BaseColor.BLACK)
+        Dim footer_details = New iTextSharp.text.Paragraph(details, _FontDetails)
+        doc.Add(footer_details)
+
+        Dim _FontFooter = New iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 6, iTextSharp.text.Font.ITALIC, iTextSharp.text.BaseColor.BLACK)
+        Dim footer = New iTextSharp.text.Paragraph("www.laschoapas.gob.mx", _FontFooter)
+        footer.Alignment = 1
+        doc.Add(footer)
+
+        doc.Close()
+        writer.Close()
+        Dim prc = New System.Diagnostics.Process()
+        prc.StartInfo.FileName = filename
+        prc.Start()
+    End Sub
+
+    Public Function AsignarCheck(ByVal item As String) As Boolean
+        Dim r As Boolean = False
+
+        Dim dato = Db.Consult("SELECT id FROM espacios_asignacion where inhumacion  = '" + item + "' ")
+
+        If dato.Read() Then
+            r = True
+        End If
+
+        Return r
+    End Function
+
+    Public Sub EspaciosAsignaciones_Consultas(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+        ListSecciones_LugaresAsignados.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("modalidad", "MODALIDAD")
+        t.Columns.Add("caducidad", "CADUCIDAD")
+        t.Columns.Add("pago", "M. PAGO")
+        t.Columns.Add("difunto", "DIFUNTO")
+        t.Columns.Add("lugar", "UBICACION FISICA")
+        t.Columns.Add("responsable", "RESPONSABLE")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                ListSecciones_LugaresAsignados.Add(dato.GetString(0))
+                t.Rows.Add(dato.GetString(1), dato.GetString(3).ToString().Replace("0:00:00", ""), "$ " + dato.GetString(4) + " MXN", dato.GetString(5), dato.GetString(6) + ", " + dato.GetString(7), dato.GetString(8))
+            Loop
+        End If
+        DataGridView_Model(t)
+    End Sub
 
 End Class

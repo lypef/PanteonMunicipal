@@ -13,6 +13,22 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Desktop\Panteon\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +61,18 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FD2EBFDDEE779691E2C0F18CAA0955EC0DFCF542</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PanteonMunicipal_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
@@ -90,6 +118,30 @@
   <ItemGroup>
     <Compile Include="class\Conexion.vb" />
     <Compile Include="class\functions.vb" />
+    <Compile Include="forms\Espacios\Espacios_Agregar.Designer.vb">
+      <DependentUpon>Espacios_Agregar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_Agregar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_Consultas.Designer.vb">
+      <DependentUpon>Espacios_Consultas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_Consultas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_NuevaSeccion.Designer.vb">
+      <DependentUpon>Espacios_NuevaSeccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_NuevaSeccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_NuevaSeccion_Lugar.Designer.vb">
+      <DependentUpon>Espacios_NuevaSeccion_Lugar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Espacios\Espacios_NuevaSeccion_Lugar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Exhumacion\ExhumacionEdit.Designer.vb">
       <DependentUpon>ExhumacionEdit.vb</DependentUpon>
     </Compile>
@@ -204,6 +256,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\Espacios\Espacios_Agregar.resx">
+      <DependentUpon>Espacios_Agregar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Espacios\Espacios_Consultas.resx">
+      <DependentUpon>Espacios_Consultas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Espacios\Espacios_NuevaSeccion.resx">
+      <DependentUpon>Espacios_NuevaSeccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Espacios\Espacios_NuevaSeccion_Lugar.resx">
+      <DependentUpon>Espacios_NuevaSeccion_Lugar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Exhumacion\ExhumacionEdit.resx">
       <DependentUpon>ExhumacionEdit.vb</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +337,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="PanteonMunicipal_ClaveTemporal.pfx" />
     <None Include="Resources\iconfinder_abstract_symbol-09_1571981.png" />
   </ItemGroup>
   <ItemGroup>
@@ -305,6 +370,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sin título-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

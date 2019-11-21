@@ -50,4 +50,22 @@
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
         Application.ExitThread()
     End Sub
+
+    Private Sub NuevaSeccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaSeccionToolStripMenuItem.Click
+        Espacios_NuevaSeccion.Show()
+    End Sub
+
+    Private Sub AgregarLugarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AgregarLugarToolStripMenuItem.Click
+        Espacios_NuevaSeccion_Lugar._loader()
+        Espacios_NuevaSeccion_Lugar.Show()
+    End Sub
+
+    Private Sub AgregarToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        Espacios_Agregar.Show()
+    End Sub
+
+    Private Sub ConsultasToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ConsultasToolStripMenuItem3.Click
+        f.AddForm_Desktop(Espacios_Consultas, Desktop)
+        Espacios_Consultas._loader()
+    End Sub
 End Class
