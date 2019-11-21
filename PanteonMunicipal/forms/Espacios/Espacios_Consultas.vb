@@ -36,13 +36,32 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
-            If f.EspaciosAsignados_Delete(item) Then
-                f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
-                f.EspaciosAsignaciones_Consultas(Sql, Table)
-            Else
-                f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+        If f.is_admin Then
+            If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
+                If f.EspaciosAsignados_Delete(item) Then
+                    f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
+                    f.EspaciosAsignaciones_Consultas(Sql, Table)
+                Else
+                    f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+                End If
             End If
+        Else
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Search()
+    End Sub
+
+    Private Sub Search()
+        Sql = "SELECT a.id, a.TxtModalidad, a.TxtObservaciones, a.TxtCaducidad, a.TxtCosto, i.TxtNombre, s.nombre , l.nombre, i.TxtNombreResponsable FROM espacios_asignacion a, inhumaciones i, espacios_secciones_lugares l, espacios_secciones s  WHERE a.inhumacion = i.id and a.espacios_secciones_lugares = l.id and l.seccion = s.id and i.TxtNombre  like '%" + TxtSearch.Text + "%' or a.inhumacion = i.id and a.espacios_secciones_lugares = l.id and l.seccion = s.id and i.TxtNombreResponsable  like '%" + TxtSearch.Text + "%';"
+        f.EspaciosAsignaciones_Consultas(Sql, Table)
+    End Sub
+
+    Private Sub TxtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtSearch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Search()
         End If
     End Sub
 End Class

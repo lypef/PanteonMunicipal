@@ -68,4 +68,21 @@
         f.AddForm_Desktop(Espacios_Consultas, Desktop)
         Espacios_Consultas._loader()
     End Sub
+
+    Private Sub GestionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionToolStripMenuItem.Click
+        If f.is_admin Then
+            f.AddForm_Desktop(users_consultar, Desktop)
+            Espacios_Consultas._loader()
+        Else
+            f.Mensaje("No tiene permisos para acceso a este modulo", MsgBoxStyle.Critical)
+        End If
+    End Sub
+
+    Private Sub NuevoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem1.Click
+        If f.is_admin Then
+            users_add.Show()
+        Else
+            f.Mensaje("No tiene permisos para acceso a este modulo", MsgBoxStyle.Critical)
+        End If
+    End Sub
 End Class

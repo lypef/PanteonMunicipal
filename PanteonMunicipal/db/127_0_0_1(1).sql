@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2019 a las 10:03:31
+-- Tiempo de generación: 21-11-2019 a las 20:05:01
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 5.6.38
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `panteondb`
 --
+CREATE DATABASE IF NOT EXISTS `panteondb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `panteondb`;
 
 -- --------------------------------------------------------
 
@@ -211,15 +213,16 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(254) NOT NULL,
   `password` varchar(254) NOT NULL,
-  `name` varchar(254) NOT NULL
+  `name` varchar(254) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `name`) VALUES
-(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'Admin');
+INSERT INTO `users` (`id`, `username`, `password`, `name`, `is_admin`) VALUES
+(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'Admin', 1);
 
 --
 -- Índices para tablas volcadas
@@ -315,7 +318,7 @@ ALTER TABLE `inhumaciones_pagos`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas

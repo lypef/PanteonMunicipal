@@ -13,6 +13,9 @@ Public Class functions
     Public Shared ListSecciones_Lugares As New List(Of Integer)
     Public Shared ListSecciones_LugaresAsignar As New List(Of Integer)
     Public Shared ListSecciones_LugaresAsignados As New List(Of Integer)
+    Public Shared Listusers As New List(Of Integer)
+
+    Public Shared is_admin As Boolean = False
 
     Public Sub ExistData()
         If Directory.Exists(RaizData) = False Then
@@ -61,7 +64,10 @@ Public Class functions
             If dato.hasrows Then
 
                 Do While dato.Read()
-                    'userID = dato.GetString(0)
+                    If dato.GetString(4).ToString.ToLower = "true" Then
+                        is_admin = True
+                    End If
+
                     r = True
                 Loop
             Else
@@ -256,6 +262,27 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+        DataGridView_Model(t)
+    End Sub
+
+    Public Sub users_Consultas(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+        Listusers.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("difunto", "NOMBRE DE USUARIO")
+        t.Columns.Add("perpetuidad", "CONTRASEÑA ENCRIPT")
+        t.Columns.Add("notumba", "NOMBRE")
+        t.Columns.Add("f_defunsion", "NIVEL")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                Listusers.Add(dato.GetString(0))
+                t.Rows.Add(dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4))
             Loop
         End If
         DataGridView_Model(t)
@@ -566,6 +593,10 @@ Public Class functions
     Public Function EspaciosAsignados_Delete(ByVal item As Int32) As Boolean
         Espacios_AsignadosUpdate(EspaciosLugarReturn_Asignados(item))
         Return Db.Ejecutar("delete from espacios_asignacion where id = " + item.ToString + " ")
+    End Function
+
+    Public Function Users_Delete(ByVal item As Int32) As Boolean
+        Return Db.Ejecutar("delete from users where id = " + item.ToString + " ")
     End Function
 
     Public Function Inhumanaciondelete(ByVal item As Int32) As Boolean
@@ -1187,5 +1218,13 @@ Public Class functions
         End If
         DataGridView_Model(t)
     End Sub
+
+    Public Function Users_Add(TxtUsername As TextBox, TxtPassword As TextBox, TxtNombre As TextBox, TxtAdmin As ComboBox)
+        Dim admin = 0
+        If TxtAdmin.SelectedIndex = 0 Then
+            admin = 1
+        End If
+        Return Db.Ejecutar("INSERT INTO `users` (`username`, `password`, `name`, `is_admin`) VALUES ('" + TxtUsername.Text + "', '" + EncriptMD5(TxtPassword.Text) + "', '" + TxtNombre.Text + "', '" + admin.ToString + "');")
+    End Function
 
 End Class

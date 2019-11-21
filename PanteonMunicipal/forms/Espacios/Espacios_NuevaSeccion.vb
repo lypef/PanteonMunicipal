@@ -26,18 +26,26 @@
     End Sub
 
     Private Sub Table_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles Table.CellValueChanged
-        f.Espacios_SeccionUpdate(Table.CurrentRow.Cells(0).Value.ToString, Table.CurrentRow.Index)
+        If f.is_admin Then
+            f.Espacios_SeccionUpdate(Table.CurrentRow.Cells(0).Value.ToString, Table.CurrentRow.Index)
+        Else
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim item = Table.CurrentRow.Index.ToString
+        If f.is_admin Then
+            Dim item = Table.CurrentRow.Index.ToString
 
-        If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
-            If f.Espacios_SeccionaDelete(item) Then
-                _loader()
-            Else
-                f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+            If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
+                If f.Espacios_SeccionaDelete(item) Then
+                    _loader()
+                Else
+                    f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+                End If
             End If
+        Else
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
         End If
     End Sub
 End Class

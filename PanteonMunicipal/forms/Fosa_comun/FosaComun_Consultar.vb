@@ -39,10 +39,14 @@
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        If String.IsNullOrEmpty(item) = False Then
-            f.FosaComunEdit(item)
+        If f.is_admin Then
+            If String.IsNullOrEmpty(item) = False Then
+                f.FosaComunEdit(item)
+            Else
+                f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+            End If
         Else
-            f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
         End If
     End Sub
 
@@ -63,13 +67,17 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
-            If f.FosaComundelete(item) Then
-                f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
-                _Update()
-            Else
-                f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+        If f.is_admin Then
+            If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
+                If f.FosaComundelete(item) Then
+                    f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
+                    _Update()
+                Else
+                    f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+                End If
             End If
+        Else
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
         End If
     End Sub
 

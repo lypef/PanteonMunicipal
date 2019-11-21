@@ -65,7 +65,7 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.TableLayoutPanel2.ColumnCount = 3
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.99454!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.00546!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel5, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Button1, 2, 0)
@@ -84,13 +84,13 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.TableLayoutPanel5.Controls.Add(Me.Label2, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.TxtNombre, 0, 1)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(261, 3)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(260, 3)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(284, 68)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(283, 68)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'Label2
@@ -100,7 +100,7 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(278, 34)
+        Me.Label2.Size = New System.Drawing.Size(277, 34)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "INGRESE NOMBRE DEL LUGAR"
         '
@@ -110,7 +110,7 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.TxtNombre.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtNombre.Location = New System.Drawing.Point(3, 37)
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(278, 27)
+        Me.TxtNombre.Size = New System.Drawing.Size(277, 27)
         Me.TxtNombre.TabIndex = 25
         '
         'TableLayoutPanel4
@@ -125,7 +125,7 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(252, 68)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(251, 68)
         Me.TableLayoutPanel4.TabIndex = 0
         '
         'Label1
@@ -135,7 +135,7 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(246, 34)
+        Me.Label1.Size = New System.Drawing.Size(245, 34)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "SELECCIONE SECCION"
         '
@@ -147,16 +147,16 @@ Partial Class Espacios_NuevaSeccion_Lugar
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(3, 37)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(246, 28)
+        Me.ComboBox1.Size = New System.Drawing.Size(245, 28)
         Me.ComboBox1.TabIndex = 26
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.DarkSeaGreen
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(551, 3)
+        Me.Button1.Location = New System.Drawing.Point(549, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(192, 68)
+        Me.Button1.Size = New System.Drawing.Size(194, 68)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "AGREGAR"
         Me.Button1.UseVisualStyleBackColor = False

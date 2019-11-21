@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -239,6 +239,18 @@
     <Compile Include="forms\Inhumanacion\Inhumanacion_add.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\users\users_add.Designer.vb">
+      <DependentUpon>users_add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\users\users_add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\users\users_consultar.Designer.vb">
+      <DependentUpon>users_consultar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\users\users_consultar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -315,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\Inhumanacion\Inhumanacion_add.resx">
       <DependentUpon>Inhumanacion_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\users\users_add.resx">
+      <DependentUpon>users_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\users\users_consultar.resx">
+      <DependentUpon>users_consultar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

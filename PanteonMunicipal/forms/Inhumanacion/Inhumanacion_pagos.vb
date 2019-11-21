@@ -35,13 +35,17 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
-            If f.InhumanaciondeletePagos(item) Then
-                f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
-                f.Inhumanaciones_Pagos(sql, Table)
-            Else
-                f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+        If f.is_admin Then
+            If (MsgBox("¿Esta seguro de eliminar el item # " + item.ToString + "?" + vbNewLine, MsgBoxStyle.Exclamation + vbYesNo) = vbYes) Then
+                If f.InhumanaciondeletePagos(item) Then
+                    f.Mensaje("Elemento eliminado con exito", MsgBoxStyle.Information)
+                    f.Inhumanaciones_Pagos(sql, Table)
+                Else
+                    f.Mensaje("No se puede eliminar el elemento", MsgBoxStyle.Critical)
+                End If
             End If
+        Else
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
         End If
     End Sub
 
@@ -65,10 +69,14 @@
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        If item <> 0 Then
-            f.InhumanacionPagosEdit(item.ToString)
+        If f.is_admin Then
+            If item <> 0 Then
+                f.InhumanacionPagosEdit(item.ToString)
+            Else
+                f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+            End If
         Else
-            f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+            f.Mensaje("No cuenta con permisos", MsgBoxStyle.Critical)
         End If
     End Sub
 End Class
