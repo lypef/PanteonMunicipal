@@ -16,6 +16,7 @@ Public Class functions
     Public Shared Listusers As New List(Of Integer)
 
     Public Shared is_admin As Boolean = False
+    Public Shared id_user As String = "0"
 
     Public Sub ExistData()
         If Directory.Exists(RaizData) = False Then
@@ -65,6 +66,7 @@ Public Class functions
 
                 Do While dato.Read()
                     If dato.GetString(4).ToString.ToLower = "true" Then
+                        id_user = dato.GetString(0)
                         is_admin = True
                     End If
 
@@ -1226,5 +1228,67 @@ Public Class functions
         End If
         Return Db.Ejecutar("INSERT INTO `users` (`username`, `password`, `name`, `is_admin`) VALUES ('" + TxtUsername.Text + "', '" + EncriptMD5(TxtPassword.Text) + "', '" + TxtNombre.Text + "', '" + admin.ToString + "');")
     End Function
+
+    Public Sub DesktopCheats(ByVal l_asignados As Label, ByVal t_inhumanaciones As Label, ByVal exhumanaciones As Label, ByVal f_comun As Label, ByVal name_user As Label, ByVal name_username As Label, ByVal nivel As Label, ByVal total_hoy As Label, ByVal log_hoy As Label)
+        Dim dato = Db.Consult("
+            SELECT COUNT(id) as conteo FROM espacios_secciones_lugares where ocupado = 1 UNION ALL
+            SELECT COUNT(id) as conteo FROM espacios_secciones_lugares UNION ALL
+            SELECT COUNT(Txtfolio) as conteo FROM exhumaciones UNION ALL
+            SELECT COUNT(Txtfolio) as conteo FROM fosa_comun UNION ALL
+            SELECT COUNT(TxtNombre) as conteo FROM inhumaciones
+        ")
+
+        Dim cont = 1
+        Dim total = 0
+
+        Do While dato.Read()
+            If cont = 1 Then
+                l_asignados.Text = "(" + dato.GetString(0) + ") LUGARES ASIGNADOS DE UN TOTAL DE: ("
+            ElseIf cont = 2 Then
+                l_asignados.Text += dato.GetString(0) + ") LUGARES"
+            ElseIf cont = 3 Then
+                exhumanaciones.Text = "(" + dato.GetString(0) + ") EXHUMANACIONES REGISTRADAS"
+            ElseIf cont = 4 Then
+                f_comun.Text = "TOTAL, FOSA COMUN: (" + dato.GetString(0) + ")"
+            ElseIf cont = 5 Then
+                t_inhumanaciones.Text = "TOTAL, INHUMANACIONES: (" + dato.GetString(0) + ")"
+            End If
+            cont += 1
+        Loop
+
+        'Datos de usuario
+        dato = Db.Consult("SELECT username, name, if (is_admin = 1, 'ADMINISTRADOR', 'STAFF') as nivel FROM `users`  WHERE id = '" + id_user + "' ")
+
+        If dato.Read() Then
+            name_user.Text = dato.GetString(1)
+            name_username.Text = dato.GetString(0)
+            nivel.Text = dato.GetString(2)
+        End If
+
+        'Registro de hoy - Inhumanaciones
+        log_hoy.Text = ""
+        dato = Db.Consult("SELECT i.TxtNombre, p.concepto, p.monto FROM inhumaciones_pagos p, inhumaciones i WHERE p.inhumanacion = i.id and  p.fecha BETWEEN NOW() - INTERVAL 1 DAY AND NOW()")
+
+        cont = 1
+        Do While dato.Read()
+            log_hoy.Text += "INHUMANACION: " + dato.GetString(0) + ", CONCEPTO: " + dato.GetString(1) + ", $ " + dato.GetString(2) + " MXN" + vbLf
+            total += Double.Parse(dato.GetString(2))
+            cont += 1
+        Loop
+
+        'Registro de hoy - Espacios
+        dato = Db.Consult("SELECT a.TxtCosto, i.TxtNombre, s.nombre , l.nombre FROM espacios_asignacion a, inhumaciones i, espacios_secciones_lugares l, espacios_secciones s  WHERE a.inhumacion = i.id and a.espacios_secciones_lugares = l.id and l.seccion = s.id and  a.registro BETWEEN NOW() - INTERVAL 1 DAY AND NOW()")
+
+        Do While dato.Read()
+            log_hoy.Text += "ASIGNACION DE ESPACIO: " + dato.GetString(1) + ", LUGAR: " + dato.GetString(2) + " - " + dato.GetString(3) + ", $ " + dato.GetString(0) + " MXN" + vbLf
+            total += Double.Parse(dato.GetString(0))
+            cont += 1
+        Loop
+
+        cont = cont - 1
+        total_hoy.Text = "INGRESOS HOY $ " + total.ToString + " MXN"
+        log_hoy.Text = "TOTAL DE MOVIMIENTOS: " + cont.ToString + vbLf + log_hoy.Text
+
+    End Sub
 
 End Class

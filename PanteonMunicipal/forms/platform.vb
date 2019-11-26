@@ -3,6 +3,7 @@
 
     Private Sub platform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         f.FormModelo(Me)
+        _loadCheats()
     End Sub
 
     Private Sub AltaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AltaToolStripMenuItem.Click
@@ -41,10 +42,17 @@
 
     Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
         f.DesktopClean(Desktop)
+        _loadCheats()
+    End Sub
+
+    Private Sub _loadCheats()
+        f.DesktopCheats(l_asignados, t_inhumanaciones, exhumanaciones, f_comun, name_user, name_username, nivel, total_hoy, log_hoy)
+        Desktop.Controls.Add(Principal)
     End Sub
 
     Private Sub ArchivoToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.DoubleClick
         f.DesktopClean(Desktop)
+        _loadCheats()
     End Sub
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
