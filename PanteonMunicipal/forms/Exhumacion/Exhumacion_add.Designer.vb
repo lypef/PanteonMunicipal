@@ -24,23 +24,23 @@ Partial Class Exhumacion_add
     Private Sub InitializeComponent()
         Me._Layout = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TxtHora = New System.Windows.Forms.DateTimePicker()
+        Me.TxtFecha = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TxtFolio = New System.Windows.Forms.TextBox()
+        Me.TxtNoOrden = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TxtFinado = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TxtSituacion = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtSolicitando = New System.Windows.Forms.TextBox()
         Me.GUARDAR = New System.Windows.Forms.Button()
-        Me.TxtFinado = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtNoOrden = New System.Windows.Forms.TextBox()
-        Me.TxtFolio = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtFecha = New System.Windows.Forms.DateTimePicker()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TxtHora = New System.Windows.Forms.DateTimePicker()
-        Me.TxtSituacion = New System.Windows.Forms.ComboBox()
         Me._Layout.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -91,6 +91,156 @@ Partial Class Exhumacion_add
         Me.Label1.Text = "SOLICITANTE"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel3.ColumnCount = 4
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtHora, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtFecha, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtFolio, 3, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtNoOrden, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label8, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 117)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 2
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(970, 73)
+        Me.TableLayoutPanel3.TabIndex = 10
+        '
+        'TxtHora
+        '
+        Me.TxtHora.CalendarFont = New System.Drawing.Font("Segoe UI", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtHora.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtHora.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
+        Me.TxtHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.TxtHora.Location = New System.Drawing.Point(487, 39)
+        Me.TxtHora.Name = "TxtHora"
+        Me.TxtHora.Size = New System.Drawing.Size(236, 31)
+        Me.TxtHora.TabIndex = 4
+        '
+        'TxtFecha
+        '
+        Me.TxtFecha.CalendarFont = New System.Drawing.Font("Segoe UI", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFecha.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtFecha.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
+        Me.TxtFecha.Location = New System.Drawing.Point(245, 39)
+        Me.TxtFecha.Name = "TxtFecha"
+        Me.TxtFecha.Size = New System.Drawing.Size(236, 31)
+        Me.TxtFecha.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(487, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(236, 36)
+        Me.Label2.TabIndex = 14
+        Me.Label2.Text = "HORA"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(245, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(236, 36)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "FECHA"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TxtFolio
+        '
+        Me.TxtFolio.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtFolio.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFolio.Location = New System.Drawing.Point(729, 39)
+        Me.TxtFolio.Name = "TxtFolio"
+        Me.TxtFolio.Size = New System.Drawing.Size(238, 31)
+        Me.TxtFolio.TabIndex = 5
+        '
+        'TxtNoOrden
+        '
+        Me.TxtNoOrden.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtNoOrden.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNoOrden.Location = New System.Drawing.Point(3, 39)
+        Me.TxtNoOrden.Name = "TxtNoOrden"
+        Me.TxtNoOrden.Size = New System.Drawing.Size(236, 31)
+        Me.TxtNoOrden.TabIndex = 2
+        '
+        'Label8
+        '
+        Me.Label8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(729, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(238, 36)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "PERPETUIDAD O FOLIO"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(236, 36)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "NUMERO DE ORDEN"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TxtFinado
+        '
+        Me.TxtFinado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtFinado.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtFinado.Location = New System.Drawing.Point(3, 80)
+        Me.TxtFinado.Name = "TxtFinado"
+        Me.TxtFinado.Size = New System.Drawing.Size(970, 31)
+        Me.TxtFinado.TabIndex = 1
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(3, 52)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(970, 25)
+        Me.Label9.TabIndex = 10
+        Me.Label9.Text = "FINADO"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -103,6 +253,30 @@ Partial Class Exhumacion_add
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "EXHUMACION"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.46392!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TxtSituacion, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 196)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(970, 50)
+        Me.TableLayoutPanel1.TabIndex = 14
+        '
+        'TxtSituacion
+        '
+        Me.TxtSituacion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtSituacion.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSituacion.Items.AddRange(New Object() {"SITUACION", "1.- INHUMANACION", "2.- FOSA COMUN"})
+        Me.TxtSituacion.Location = New System.Drawing.Point(3, 3)
+        Me.TxtSituacion.Name = "TxtSituacion"
+        Me.TxtSituacion.Size = New System.Drawing.Size(964, 40)
+        Me.TxtSituacion.TabIndex = 6
         '
         'Label6
         '
@@ -140,180 +314,6 @@ Partial Class Exhumacion_add
         Me.GUARDAR.TabIndex = 8
         Me.GUARDAR.Text = "GUARDAR"
         Me.GUARDAR.UseVisualStyleBackColor = False
-        '
-        'TxtFinado
-        '
-        Me.TxtFinado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtFinado.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFinado.Location = New System.Drawing.Point(3, 80)
-        Me.TxtFinado.Name = "TxtFinado"
-        Me.TxtFinado.Size = New System.Drawing.Size(970, 31)
-        Me.TxtFinado.TabIndex = 1
-        '
-        'Label4
-        '
-        Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(236, 36)
-        Me.Label4.TabIndex = 11
-        Me.Label4.Text = "NUMERO DE ORDEN"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label8
-        '
-        Me.Label8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(729, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(238, 36)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "PERPETUIDAD O FOLIO"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TxtNoOrden
-        '
-        Me.TxtNoOrden.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtNoOrden.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtNoOrden.Location = New System.Drawing.Point(3, 39)
-        Me.TxtNoOrden.Name = "TxtNoOrden"
-        Me.TxtNoOrden.Size = New System.Drawing.Size(236, 31)
-        Me.TxtNoOrden.TabIndex = 2
-        '
-        'TxtFolio
-        '
-        Me.TxtFolio.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtFolio.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFolio.Location = New System.Drawing.Point(729, 39)
-        Me.TxtFolio.Name = "TxtFolio"
-        Me.TxtFolio.Size = New System.Drawing.Size(238, 31)
-        Me.TxtFolio.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(245, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(236, 36)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "FECHA"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(487, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(236, 36)
-        Me.Label2.TabIndex = 14
-        Me.Label2.Text = "HORA"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TxtFecha
-        '
-        Me.TxtFecha.CalendarFont = New System.Drawing.Font("Segoe UI", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFecha.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TxtFecha.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
-        Me.TxtFecha.Location = New System.Drawing.Point(245, 39)
-        Me.TxtFecha.Name = "TxtFecha"
-        Me.TxtFecha.Size = New System.Drawing.Size(236, 31)
-        Me.TxtFecha.TabIndex = 3
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel3.ColumnCount = 4
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtHora, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtFecha, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 2, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 1, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtFolio, 3, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtNoOrden, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label8, 3, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 117)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 2
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(970, 73)
-        Me.TableLayoutPanel3.TabIndex = 10
-        '
-        'Label9
-        '
-        Me.Label9.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(3, 52)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(970, 25)
-        Me.Label9.TabIndex = 10
-        Me.Label9.Text = "FINADO"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.46392!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TxtSituacion, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 196)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(970, 50)
-        Me.TableLayoutPanel1.TabIndex = 14
-        '
-        'TxtHora
-        '
-        Me.TxtHora.CalendarFont = New System.Drawing.Font("Segoe UI", 11.12727!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtHora.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TxtHora.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
-        Me.TxtHora.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.TxtHora.Location = New System.Drawing.Point(487, 39)
-        Me.TxtHora.Name = "TxtHora"
-        Me.TxtHora.Size = New System.Drawing.Size(236, 31)
-        Me.TxtHora.TabIndex = 4
-        '
-        'TxtSituacion
-        '
-        Me.TxtSituacion.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TxtSituacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.TxtSituacion.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSituacion.Items.AddRange(New Object() {"SITUACION", "1.- INHUMANACION", "2.- FOSA COMUN"})
-        Me.TxtSituacion.Location = New System.Drawing.Point(3, 3)
-        Me.TxtSituacion.Name = "TxtSituacion"
-        Me.TxtSituacion.Size = New System.Drawing.Size(964, 40)
-        Me.TxtSituacion.TabIndex = 6
         '
         'Exhumacion_add
         '

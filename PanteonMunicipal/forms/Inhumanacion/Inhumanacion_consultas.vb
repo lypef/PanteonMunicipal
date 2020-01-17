@@ -6,7 +6,7 @@
     Public Sub loader()
         sql = ""
         item = 0
-        sql = "SELECT id, TxtNombre, TxtPerpetuidad, TxtNoTumba, TxtFechaDefunsion, TxtNombreResponsable FROM `inhumaciones`"
+        sql = "SELECT id, TxtNombre, TxtPerpetuidad, TxtNoTumba, TxtFechaDefunsion, TxtNombreResponsable FROM `inhumaciones` WHERE _delete = 0"
         f.Inhumanaciones_Consultas(sql, Table)
     End Sub
 
@@ -27,7 +27,7 @@
     End Sub
 
     Private Sub Search()
-        sql = "SELECT * FROM inhumaciones WHERE TxtNombre LIKE '%" + TxtSearch.Text + "%' OR TxtZona LIKE '%" + TxtSearch.Text + "%' OR TxtNoTumba LIKE '%" + TxtSearch.Text + "%' OR TxtNombreResponsable LIKE '%" + TxtSearch.Text + "%';"
+        sql = "SELECT id, TxtNombre, TxtPerpetuidad, TxtNoTumba, TxtFechaDefunsion, TxtNombreResponsable FROM inhumaciones WHERE TxtNombre LIKE '%" + TxtSearch.Text + "%' and _delete = 0 OR TxtZona LIKE '%" + TxtSearch.Text + "%'  and _delete = 0 OR TxtNoTumba LIKE '%" + TxtSearch.Text + "%'  and _delete = 0 OR TxtNombreResponsable LIKE '%" + TxtSearch.Text + "%' and _delete = 0;"
         f.Inhumanaciones_Consultas(sql, Table)
     End Sub
 

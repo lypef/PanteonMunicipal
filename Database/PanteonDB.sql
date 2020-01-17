@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2019 a las 08:39:09
+-- Tiempo de generación: 17-01-2020 a las 06:26:09
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 5.6.38
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `panteondb`
 --
-CREATE DATABASE IF NOT EXISTS `panteondb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `panteondb`;
 
 -- --------------------------------------------------------
 
@@ -48,7 +46,6 @@ CREATE TABLE `espacios_asignacion` (
 INSERT INTO `espacios_asignacion` (`id`, `inhumacion`, `espacios_secciones_lugares`, `TxtModalidad`, `TxtObservaciones`, `TxtCosto`, `TxtCaducidad`, `registro`) VALUES
 (38, 3, 7, 'Ninguno', 'Ninguno', 3, '2026-11-21', '2019-11-26 00:58:49'),
 (39, 4, 8, 'Ninguno', 'Ninguno', 33, '2026-11-21', '2019-11-25 00:58:49'),
-(40, 2, 41, 'Ninguno', 'Ninguno', 1890, '2026-11-21', '2019-11-26 00:58:49'),
 (41, 5, 4, 'Ninguno', 'Ninguno', 1000, '2026-11-26', '2019-11-26 01:36:23');
 
 -- --------------------------------------------------------
@@ -176,18 +173,22 @@ CREATE TABLE `inhumaciones` (
   `TxtAdjuntar` varchar(254) NOT NULL DEFAULT 'Ninguno',
   `TxtNombreResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
   `TxtDireccionResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
-  `TxtTelefonoResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno'
+  `TxtTelefonoResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
+  `_delete` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `inhumaciones`
 --
 
-INSERT INTO `inhumaciones` (`id`, `TxtNombre`, `TxtSexo`, `TxtZona`, `TxtPerpetuidad`, `TxtNoTumba`, `TxtFechaNacimiento`, `TxtFechaDefunsion`, `TxtFechaRegistro`, `TxtTipoTumba`, `TxtAdjuntar`, `TxtNombreResponsable`, `TxtDireccionResponsable`, `TxtTelefonoResponsable`) VALUES
-(2, 'FEDERICO AQUISI  PEREZ RAMIREZa', 'HOMBRE', 'ZONA SUR', '333JHN3JKNJK3', 'M3J3H3', '2019-11-21', '2019-11-22', '2019-11-23', 'AA', '3112019171321.pdf', 'JOSE FEDERICO AQUINO PEREZ', 'SSS', 'SSSS'),
-(3, 'ESTA ES UNA PRUEBA DE ACTUALIZACION', 'OTRO', 'ZONA SUR', '3JKN3KJ3NJ33J3NJ', 'KNKLNKLN', '2019-11-01', '2019-11-02', '2019-11-03', '', '4112019224117.pdf', 'NOMBRE COMPLETO CON APELLIDOS DEL ENCARGADO', '20 de noviembre, no. 306, col. centro.', '1651515'),
-(4, 'frgfbfgdb', 'bfdbdf', 'fdbfdbfdbffdbfdbfbfd', 'fbbfdbfd', 'dfbfdb', '2019-11-21', '2019-11-21', '2019-11-21', 'fdbfbfbfdb', '2111201924423.pdf', 'fdbfdbfb', 'fdbfb', ''),
-(5, 'aaaa', 'aa', 'aaa', 'aa', 'aa', '2019-11-26', '2019-11-26', '2019-11-26', '', '2611201904625.pdf', 'aaa', 'aa', 'a');
+INSERT INTO `inhumaciones` (`id`, `TxtNombre`, `TxtSexo`, `TxtZona`, `TxtPerpetuidad`, `TxtNoTumba`, `TxtFechaNacimiento`, `TxtFechaDefunsion`, `TxtFechaRegistro`, `TxtTipoTumba`, `TxtAdjuntar`, `TxtNombreResponsable`, `TxtDireccionResponsable`, `TxtTelefonoResponsable`, `_delete`) VALUES
+(3, 'ESTA ES UNA PRUEBA DE ACTUALIZACION', 'OTRO', 'ZONA SUR', '3JKN3KJ3NJ33J3NJ', 'KNKLNKLN', '2019-11-01', '2019-11-02', '2019-11-03', '', '4112019224117.pdf', 'NOMBRE COMPLETO CON APELLIDOS DEL ENCARGADO', '20 de noviembre, no. 306, col. centro.', '1651515', 0),
+(4, 'frgfbfgdb', 'bfdbdf', 'fdbfdbfdbffdbfdbfbfd', 'fbbfdbfd', 'dfbfdb', '2019-11-21', '2019-11-21', '2019-11-21', 'fdbfbfbfdb', '2111201924423.pdf', 'fdbfdbfb', 'fdbfb', '', 1),
+(5, 'aaaa', 'aa', 'aaa', 'aa', 'aa', '2019-11-26', '2019-11-26', '2019-11-26', '', '2611201904625.pdf', 'aaa', 'aa', 'a', 1),
+(6, 'aaaa', 'Masculino', 'B', 'aaaaa', '5146515151', '2020-01-16', '2020-01-16', '2020-01-16', 'aaaaa', '16012020222540.pdf', 'aaaa', 'aaaaa', '', 0),
+(7, 'dqwd', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'q', 'q', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020223506.pdf', '', '', '', 1),
+(8, 'efewfefefef', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'fefefe', 'efefef', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020224123.pdf', '', '', '', 0),
+(9, 'dwdwdwdwd', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'dwdwdw', 'wdwdwd', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020224153.pdf', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -211,11 +212,10 @@ CREATE TABLE `inhumaciones_pagos` (
 
 INSERT INTO `inhumaciones_pagos` (`id`, `inhumanacion`, `descripcion`, `concepto`, `monto`, `preseidente`, `fecha`) VALUES
 (6, 3, 'PAGO ACTUALIZADO', 'PAGO POR 4 AÑOS', 1500.5, 'A', '2019-11-05 15:41:24'),
-(7, 2, 'AQUI SE ESCRIBEN LAS DESCRIPCIONES', 'AQUI SE ESCRIBE EL CONCEPTO', 150.5, 'LA SEÑORA PRESIDENTA', '2019-11-05 16:00:12'),
 (8, 3, 'aa', 'aaa', 1, 'a', '2019-11-05 16:00:22'),
 (9, 3, 'desc', 'concepto 9', 1450, 'Fatima Yadira Soto Petic', '2019-11-05 16:05:18'),
 (10, 3, 'ss', 'sss', 1500, 'Fatima Yadira Soto Petic', '2019-11-21 01:45:25'),
-(11, 2, '', '', 1500, 'Fatima Yadira Soto Petic', '2019-11-26 00:46:34');
+(12, 9, 'wdwdwdwdwdwd', 'wdwdwdwd', 1500, 'Fatima Yadira Soto Petic', '2020-01-16 22:42:06');
 
 -- --------------------------------------------------------
 
@@ -320,13 +320,13 @@ ALTER TABLE `espacios_secciones_lugares`
 -- AUTO_INCREMENT de la tabla `inhumaciones`
 --
 ALTER TABLE `inhumaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `inhumaciones_pagos`
 --
 ALTER TABLE `inhumaciones_pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

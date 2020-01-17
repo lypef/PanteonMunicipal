@@ -23,6 +23,7 @@
         TxtFolio.Text = ""
         TxtFuneraria.Text = ""
         TxtSexo.SelectedIndex = 0
+        TxtFuneraria.SelectedIndex = 0
         TxtUbicacion.Text = ""
         SolicitudFiscalia = ""
         __pdf.LoadFile("DONTEXISTS.pdf")

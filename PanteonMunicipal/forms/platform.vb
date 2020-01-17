@@ -31,8 +31,7 @@
     End Sub
 
     Private Sub FosaComunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FosaComunToolStripMenuItem.Click
-        f.AddForm_Desktop(FosaComun_Consultar, Desktop)
-        FosaComun_Consultar.loader()
+
     End Sub
 
     Private Sub FosaComunToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs) Handles FosaComunToolStripMenuItem.DoubleClick
@@ -40,9 +39,8 @@
         FosaComun_Consultar.loader()
     End Sub
 
-    Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
-        f.DesktopClean(Desktop)
-        _loadCheats()
+    Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub _loadCheats()
@@ -50,13 +48,13 @@
         Desktop.Controls.Add(Principal)
     End Sub
 
-    Private Sub ArchivoToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.DoubleClick
+    Private Sub ArchivoToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs)
         f.DesktopClean(Desktop)
         _loadCheats()
     End Sub
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
-        Application.ExitThread()
+        Application.Restart()
     End Sub
 
     Private Sub NuevaSeccionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevaSeccionToolStripMenuItem.Click
@@ -92,5 +90,24 @@
         Else
             f.Mensaje("No tiene permisos para acceso a este modulo", MsgBoxStyle.Critical)
         End If
+    End Sub
+
+    Private Sub PrincipalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrincipalToolStripMenuItem.Click
+        f.DesktopClean(Desktop)
+        _loadCheats()
+    End Sub
+
+    Private Sub GESTIONARToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GESTIONARToolStripMenuItem.Click
+        f.AddForm_Desktop(FosaComun_Consultar, Desktop)
+        FosaComun_Consultar.loader()
+    End Sub
+
+    Private Sub AgregarToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles AgregarToolStripMenuItem.Click
+        FosaComun_Add.Show()
+        FosaComun_Add._loader()
+    End Sub
+
+    Private Sub PapeleraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PapeleraToolStripMenuItem.Click
+        f.Papelera()
     End Sub
 End Class

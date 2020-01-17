@@ -41,12 +41,14 @@ Partial Class platform
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.INFORMACION_DE_USUARIO = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrincipalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InhumacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConsultasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,8 +65,9 @@ Partial Class platform
         Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.INFORMACION_DE_USUARIO = New System.Windows.Forms.Label()
+        Me.GESTIONARToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PapeleraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.Desktop.SuspendLayout()
         Me.Principal.SuspendLayout()
@@ -79,7 +82,7 @@ Partial Class platform
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.MenuStrip1.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(18, 18)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ArchivoToolStripMenuItem, Me.InhumacionToolStripMenuItem, Me.ExhumacionToolStripMenuItem, Me.FosaComunToolStripMenuItem, Me.AdquisicionDeEspacioToolStripMenuItem, Me.UsuariosToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.InhumacionToolStripMenuItem, Me.ExhumacionToolStripMenuItem, Me.FosaComunToolStripMenuItem, Me.AdquisicionDeEspacioToolStripMenuItem, Me.UsuariosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1400, 40)
@@ -335,6 +338,19 @@ Partial Class platform
         Me.Label3.Text = "NIVEL"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'INFORMACION_DE_USUARIO
+        '
+        Me.INFORMACION_DE_USUARIO.AutoSize = True
+        Me.INFORMACION_DE_USUARIO.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.INFORMACION_DE_USUARIO.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.INFORMACION_DE_USUARIO.ForeColor = System.Drawing.Color.White
+        Me.INFORMACION_DE_USUARIO.Location = New System.Drawing.Point(3, 800)
+        Me.INFORMACION_DE_USUARIO.Name = "INFORMACION_DE_USUARIO"
+        Me.INFORMACION_DE_USUARIO.Size = New System.Drawing.Size(1394, 47)
+        Me.INFORMACION_DE_USUARIO.TabIndex = 4
+        Me.INFORMACION_DE_USUARIO.Text = "INFORMACION DE USUARIO"
+        Me.INFORMACION_DE_USUARIO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 3
@@ -365,6 +381,19 @@ Partial Class platform
         Me.Label6.TabIndex = 9
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Image = Global.PanteonMunicipal.My.Resources.Resources._3
+        Me.Label5.Location = New System.Drawing.Point(467, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(458, 214)
+        Me.Label5.TabIndex = 8
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -381,7 +410,7 @@ Partial Class platform
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2})
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrincipalToolStripMenuItem, Me.PapeleraToolStripMenuItem, Me.ToolStripMenuItem2})
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Black
         Me.ToolStripMenuItem1.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
@@ -389,21 +418,17 @@ Partial Class platform
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 36)
         Me.ToolStripMenuItem1.Text = "ARCHIVO"
         '
+        'PrincipalToolStripMenuItem
+        '
+        Me.PrincipalToolStripMenuItem.Name = "PrincipalToolStripMenuItem"
+        Me.PrincipalToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
+        Me.PrincipalToolStripMenuItem.Text = "Principal"
+        '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(139, 36)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(184, 36)
         Me.ToolStripMenuItem2.Text = "Salir"
-        '
-        'ArchivoToolStripMenuItem
-        '
-        Me.ArchivoToolStripMenuItem.BackColor = System.Drawing.Color.Transparent
-        Me.ArchivoToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ArchivoToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ArchivoToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(154, 36)
-        Me.ArchivoToolStripMenuItem.Text = "PRINCIPAL"
         '
         'InhumacionToolStripMenuItem
         '
@@ -457,6 +482,7 @@ Partial Class platform
         '
         'FosaComunToolStripMenuItem
         '
+        Me.FosaComunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GESTIONARToolStripMenuItem})
         Me.FosaComunToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
         Me.FosaComunToolStripMenuItem.ForeColor = System.Drawing.Color.Black
         Me.FosaComunToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
@@ -521,31 +547,23 @@ Partial Class platform
         Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(175, 36)
         Me.GestionToolStripMenuItem.Text = "Gestion"
         '
-        'Label5
+        'GESTIONARToolStripMenuItem
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Image = Global.PanteonMunicipal.My.Resources.Resources._3
-        Me.Label5.Location = New System.Drawing.Point(467, 0)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(458, 214)
-        Me.Label5.TabIndex = 8
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.GESTIONARToolStripMenuItem.Name = "GESTIONARToolStripMenuItem"
+        Me.GESTIONARToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
+        Me.GESTIONARToolStripMenuItem.Text = "Gestionar"
         '
-        'INFORMACION_DE_USUARIO
+        'AgregarToolStripMenuItem
         '
-        Me.INFORMACION_DE_USUARIO.AutoSize = True
-        Me.INFORMACION_DE_USUARIO.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.INFORMACION_DE_USUARIO.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.INFORMACION_DE_USUARIO.ForeColor = System.Drawing.Color.White
-        Me.INFORMACION_DE_USUARIO.Location = New System.Drawing.Point(3, 800)
-        Me.INFORMACION_DE_USUARIO.Name = "INFORMACION_DE_USUARIO"
-        Me.INFORMACION_DE_USUARIO.Size = New System.Drawing.Size(1394, 47)
-        Me.INFORMACION_DE_USUARIO.TabIndex = 4
-        Me.INFORMACION_DE_USUARIO.Text = "INFORMACION DE USUARIO"
-        Me.INFORMACION_DE_USUARIO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
+        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
+        Me.AgregarToolStripMenuItem.Text = "Agregar"
+        '
+        'PapeleraToolStripMenuItem
+        '
+        Me.PapeleraToolStripMenuItem.Name = "PapeleraToolStripMenuItem"
+        Me.PapeleraToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
+        Me.PapeleraToolStripMenuItem.Text = "Papelera"
         '
         'platform
         '
@@ -579,7 +597,6 @@ Partial Class platform
     End Sub
 
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents ArchivoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InhumacionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AltaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ConsultasToolStripMenuItem As ToolStripMenuItem
@@ -620,4 +637,8 @@ Partial Class platform
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents INFORMACION_DE_USUARIO As Label
+    Friend WithEvents PrincipalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GESTIONARToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PapeleraToolStripMenuItem As ToolStripMenuItem
 End Class

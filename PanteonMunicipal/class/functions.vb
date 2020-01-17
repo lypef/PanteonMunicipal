@@ -104,14 +104,14 @@ Public Class functions
 
     Public Function DifundoAdd(
         ByVal TxtNombre As TextBox,
-        ByVal TxtSexo As TextBox,
-        ByVal TxtZona As TextBox,
+        ByVal TxtSexo As ComboBox,
+        ByVal TxtZona As ComboBox,
         ByVal TxtPerpetuidad As TextBox,
         ByVal TxtNoTumba As TextBox,
         ByVal TxtFechaNacimiento As DateTimePicker,
         ByVal TxtFechaDefunsion As DateTimePicker,
         ByVal TxtFechaRegistro As DateTimePicker,
-        ByVal TxtTipoTumba As TextBox,
+        ByVal TxtTipoTumba As ComboBox,
         ByVal TxtAdjuntar As TextBox,
         ByVal TxtNombreResponsable As TextBox,
         ByVal TxtDireccionResponsable As TextBox,
@@ -151,7 +151,7 @@ Public Class functions
 
     Public Function FosaComunAdd(
         ByVal TxtFolio As TextBox,
-        ByVal TxtFuneraria As TextBox,
+        ByVal TxtFuneraria As ComboBox,
         ByVal TxtSexo As ComboBox,
         ByVal TxtUbicacion As TextBox,
         ByVal TxtFiscalia As String)
@@ -264,6 +264,26 @@ Public Class functions
         If dato.HasRows Then
             Do While dato.Read()
                 t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4), dato.GetString(5))
+            Loop
+        End If
+        DataGridView_Model(t)
+    End Sub
+
+    Public Sub Inhumanaciones_Consultas_Delete(ByVal sql As String, ByVal t As DataGridView)
+        t.Columns.Clear()
+        t.Rows.Clear()
+
+        Dim dato = Db.Consult(sql)
+
+        t.Columns.Add("id", "ID")
+        t.Columns.Add("perpetuidad", "PERPETUIDAD")
+        t.Columns.Add("no_tumba", "NO. TUMBA")
+        t.Columns.Add("f_naci", "F. NACIMIENTO")
+        t.Columns.Add("f_defunsion", "FECHA DEFUNCION")
+
+        If dato.HasRows Then
+            Do While dato.Read()
+                t.Rows.Add(dato.GetString(0), dato.GetString(1), dato.GetString(2), dato.GetString(3), dato.GetString(4))
             Loop
         End If
         DataGridView_Model(t)
@@ -602,7 +622,15 @@ Public Class functions
     End Function
 
     Public Function Inhumanaciondelete(ByVal item As Int32) As Boolean
-        Return Db.Ejecutar("delete from inhumaciones where id = " + item.ToString + " ")
+        Return Db.Ejecutar("UPDATE `inhumaciones` SET `_delete` = '1' WHERE id = " + item.ToString + " ")
+    End Function
+
+    Public Function InhumanacionRecovery(ByVal item As Int32) As Boolean
+        Return Db.Ejecutar("UPDATE `inhumaciones` SET `_delete` = '0' WHERE id = " + item.ToString + " ")
+    End Function
+
+    Public Function InhumanaciondeleteForEver(ByVal item As Int32) As Boolean
+        Return Db.Ejecutar("DELETE FROM `inhumaciones` WHERE id = " + item.ToString + " ")
     End Function
 
     Public Function FosaComundelete(ByVal item As String) As Boolean
@@ -728,6 +756,12 @@ Public Class functions
             form.Show()
         End If
 
+    End Sub
+
+    Public Sub Papelera()
+        Dim form As New papelera
+        form.loading()
+        form.Show()
     End Sub
 
     Public Function Inhumacion_Pagos_Add(
@@ -1290,5 +1324,17 @@ Public Class functions
         log_hoy.Text = "TOTAL DE MOVIMIENTOS: " + cont.ToString + vbLf + log_hoy.Text
 
     End Sub
+
+    Public Function InhumanacionLastID() As Integer
+        Dim r As Integer = 0
+
+        Dim dato = Db.Consult("SELECT id FROM inhumaciones order by id desc limit 1;")
+
+        If dato.Read() Then
+            r = Integer.Parse(dato.GetString(0))
+        End If
+
+        Return r
+    End Function
 
 End Class

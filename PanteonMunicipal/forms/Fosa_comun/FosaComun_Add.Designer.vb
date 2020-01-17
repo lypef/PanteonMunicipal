@@ -24,30 +24,30 @@ Partial Class FosaComun_Add
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FosaComun_Add))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me._pdf = New AxAcroPDFLib.AxAcroPDF()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TxtSexo = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TxtUbicacion = New System.Windows.Forms.TextBox()
-        Me.TxtFuneraria = New System.Windows.Forms.TextBox()
         Me.TxtFolio = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.TxtSexo = New System.Windows.Forms.ComboBox()
-        Me._pdf = New AxAcroPDFLib.AxAcroPDF()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TxtFuneraria = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me._pdf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.TxtFuneraria)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me._pdf)
         Me.GroupBox2.Controls.Add(Me.Button2)
         Me.GroupBox2.Controls.Add(Me.TxtSexo)
         Me.GroupBox2.Controls.Add(Me.Button1)
         Me.GroupBox2.Controls.Add(Me.TxtUbicacion)
-        Me.GroupBox2.Controls.Add(Me.TxtFuneraria)
         Me.GroupBox2.Controls.Add(Me.TxtFolio)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -61,6 +61,56 @@ Partial Class FosaComun_Add
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "NUEVO CUERPO A FOSA COMUN"
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.Yellow
+        Me.Button3.Location = New System.Drawing.Point(187, 273)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(155, 55)
+        Me.Button3.TabIndex = 33
+        Me.Button3.Text = "S. FISCALIA"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        '_pdf
+        '
+        Me._pdf.Enabled = True
+        Me._pdf.Location = New System.Drawing.Point(516, 33)
+        Me._pdf.Name = "_pdf"
+        Me._pdf.OcxState = CType(resources.GetObject("_pdf.OcxState"), System.Windows.Forms.AxHost.State)
+        Me._pdf.Size = New System.Drawing.Size(472, 295)
+        Me._pdf.TabIndex = 32
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.DarkSeaGreen
+        Me.Button2.Location = New System.Drawing.Point(355, 273)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(155, 55)
+        Me.Button2.TabIndex = 30
+        Me.Button2.Text = "GUARDAR"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'TxtSexo
+        '
+        Me.TxtSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtSexo.Font = New System.Drawing.Font("Segoe UI", 9.818182!)
+        Me.TxtSexo.FormattingEnabled = True
+        Me.TxtSexo.Items.AddRange(New Object() {"SELECCIONE UN SEXO", "FEMENINO", "MASCULINO", "NO IDENTIFICADO"})
+        Me.TxtSexo.Location = New System.Drawing.Point(10, 107)
+        Me.TxtSexo.Name = "TxtSexo"
+        Me.TxtSexo.Size = New System.Drawing.Size(499, 28)
+        Me.TxtSexo.TabIndex = 31
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Button1.Location = New System.Drawing.Point(10, 273)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(155, 55)
+        Me.Button1.TabIndex = 29
+        Me.Button1.Text = "CERRAR"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'TxtUbicacion
         '
         Me.TxtUbicacion.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -69,14 +119,6 @@ Partial Class FosaComun_Add
         Me.TxtUbicacion.Name = "TxtUbicacion"
         Me.TxtUbicacion.Size = New System.Drawing.Size(499, 98)
         Me.TxtUbicacion.TabIndex = 25
-        '
-        'TxtFuneraria
-        '
-        Me.TxtFuneraria.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFuneraria.Location = New System.Drawing.Point(112, 70)
-        Me.TxtFuneraria.Name = "TxtFuneraria"
-        Me.TxtFuneraria.Size = New System.Drawing.Size(397, 27)
-        Me.TxtFuneraria.TabIndex = 23
         '
         'TxtFolio
         '
@@ -116,55 +158,16 @@ Partial Class FosaComun_Add
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "N. FOLIO:"
         '
-        'Button2
+        'TxtFuneraria
         '
-        Me.Button2.BackColor = System.Drawing.Color.DarkSeaGreen
-        Me.Button2.Location = New System.Drawing.Point(355, 273)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(155, 55)
-        Me.Button2.TabIndex = 30
-        Me.Button2.Text = "GUARDAR"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.Button1.Location = New System.Drawing.Point(10, 273)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(155, 55)
-        Me.Button1.TabIndex = 29
-        Me.Button1.Text = "CERRAR"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'TxtSexo
-        '
-        Me.TxtSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.TxtSexo.Font = New System.Drawing.Font("Segoe UI", 9.818182!)
-        Me.TxtSexo.FormattingEnabled = True
-        Me.TxtSexo.Items.AddRange(New Object() {"SELECCIONE UN SEXO", "FEMENINO", "MASCULINO", "NO IDENTIFICADO"})
-        Me.TxtSexo.Location = New System.Drawing.Point(10, 107)
-        Me.TxtSexo.Name = "TxtSexo"
-        Me.TxtSexo.Size = New System.Drawing.Size(499, 28)
-        Me.TxtSexo.TabIndex = 31
-        '
-        '_pdf
-        '
-        Me._pdf.Enabled = True
-        Me._pdf.Location = New System.Drawing.Point(516, 33)
-        Me._pdf.Name = "_pdf"
-        Me._pdf.OcxState = CType(resources.GetObject("_pdf.OcxState"), System.Windows.Forms.AxHost.State)
-        Me._pdf.Size = New System.Drawing.Size(472, 295)
-        Me._pdf.TabIndex = 32
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Yellow
-        Me.Button3.Location = New System.Drawing.Point(187, 273)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(155, 55)
-        Me.Button3.TabIndex = 33
-        Me.Button3.Text = "S. FISCALIA"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.TxtFuneraria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtFuneraria.Font = New System.Drawing.Font("Segoe UI", 9.818182!)
+        Me.TxtFuneraria.FormattingEnabled = True
+        Me.TxtFuneraria.Items.AddRange(New Object() {"SELECCIONE FUNERARIA", "F. VELAZCO", "F. KURI", "F. VILLALONGA"})
+        Me.TxtFuneraria.Location = New System.Drawing.Point(112, 70)
+        Me.TxtFuneraria.Name = "TxtFuneraria"
+        Me.TxtFuneraria.Size = New System.Drawing.Size(397, 28)
+        Me.TxtFuneraria.TabIndex = 34
         '
         'FosaComun_Add
         '
@@ -186,7 +189,6 @@ Partial Class FosaComun_Add
 
     Friend WithEvents GroupBox2 As GroupBox
     Public WithEvents TxtUbicacion As TextBox
-    Public WithEvents TxtFuneraria As TextBox
     Public WithEvents TxtFolio As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label4 As Label
@@ -196,4 +198,5 @@ Partial Class FosaComun_Add
     Friend WithEvents Button1 As Button
     Friend WithEvents _pdf As AxAcroPDFLib.AxAcroPDF
     Friend WithEvents Button3 As Button
+    Friend WithEvents TxtFuneraria As ComboBox
 End Class

@@ -38,16 +38,15 @@ Partial Class Inhumanacion_add
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TxtNombre = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TxtZona = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TxtNoTumba = New System.Windows.Forms.TextBox()
-        Me.TxtSexo = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TxtPerpetuidad = New System.Windows.Forms.TextBox()
-        Me.TxtZona = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TxtSexo = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TxtTipoTumba = New System.Windows.Forms.TextBox()
         Me.TxtFechaDefunsion = New System.Windows.Forms.DateTimePicker()
         Me.TxtFechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -55,6 +54,7 @@ Partial Class Inhumanacion_add
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.TxtFechaRegistro = New System.Windows.Forms.DateTimePicker()
+        Me.TxtTipoTumba = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me._Layout = New System.Windows.Forms.TableLayoutPanel()
         Me.PdfContent = New System.Windows.Forms.Panel()
@@ -254,14 +254,14 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtZona, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label2, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label3, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.TxtNoTumba, 3, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtSexo, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label8, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.TxtPerpetuidad, 2, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.TxtZona, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.TxtSexo, 0, 1)
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 117)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
@@ -270,6 +270,18 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(996, 73)
         Me.TableLayoutPanel3.TabIndex = 10
+        '
+        'TxtZona
+        '
+        Me.TxtZona.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtZona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtZona.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtZona.FormattingEnabled = True
+        Me.TxtZona.Items.AddRange(New Object() {"SELECCIONE ZONA", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"})
+        Me.TxtZona.Location = New System.Drawing.Point(252, 39)
+        Me.TxtZona.Name = "TxtZona"
+        Me.TxtZona.Size = New System.Drawing.Size(243, 33)
+        Me.TxtZona.TabIndex = 21
         '
         'Label2
         '
@@ -310,17 +322,6 @@ Partial Class Inhumanacion_add
         Me.TxtNoTumba.Size = New System.Drawing.Size(243, 31)
         Me.TxtNoTumba.TabIndex = 5
         '
-        'TxtSexo
-        '
-        Me.TxtSexo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtSexo.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSexo.Location = New System.Drawing.Point(3, 39)
-        Me.TxtSexo.Name = "TxtSexo"
-        Me.TxtSexo.Size = New System.Drawing.Size(243, 31)
-        Me.TxtSexo.TabIndex = 2
-        '
         'Label8
         '
         Me.Label8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -346,17 +347,6 @@ Partial Class Inhumanacion_add
         Me.TxtPerpetuidad.Size = New System.Drawing.Size(243, 31)
         Me.TxtPerpetuidad.TabIndex = 4
         '
-        'TxtZona
-        '
-        Me.TxtZona.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtZona.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtZona.Location = New System.Drawing.Point(252, 39)
-        Me.TxtZona.Name = "TxtZona"
-        Me.TxtZona.Size = New System.Drawing.Size(243, 31)
-        Me.TxtZona.TabIndex = 3
-        '
         'Label4
         '
         Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -371,6 +361,18 @@ Partial Class Inhumanacion_add
         Me.Label4.Text = "SEXO"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'TxtSexo
+        '
+        Me.TxtSexo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtSexo.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSexo.FormattingEnabled = True
+        Me.TxtSexo.Items.AddRange(New Object() {"SELECCIONE SEXO", "Femenino", "Masculino"})
+        Me.TxtSexo.Location = New System.Drawing.Point(3, 39)
+        Me.TxtSexo.Name = "TxtSexo"
+        Me.TxtSexo.Size = New System.Drawing.Size(243, 33)
+        Me.TxtSexo.TabIndex = 20
+        '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -380,7 +382,6 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel5.Controls.Add(Me.TxtTipoTumba, 3, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TxtFechaDefunsion, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TxtFechaNacimiento, 0, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.Label10, 2, 0)
@@ -388,6 +389,7 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel5.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.Label13, 3, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.TxtFechaRegistro, 2, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.TxtTipoTumba, 3, 1)
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 196)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 2
@@ -396,17 +398,6 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(996, 74)
         Me.TableLayoutPanel5.TabIndex = 12
-        '
-        'TxtTipoTumba
-        '
-        Me.TxtTipoTumba.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtTipoTumba.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTipoTumba.Location = New System.Drawing.Point(750, 39)
-        Me.TxtTipoTumba.Name = "TxtTipoTumba"
-        Me.TxtTipoTumba.Size = New System.Drawing.Size(243, 31)
-        Me.TxtTipoTumba.TabIndex = 9
         '
         'TxtFechaDefunsion
         '
@@ -500,6 +491,18 @@ Partial Class Inhumanacion_add
         Me.TxtFechaRegistro.Name = "TxtFechaRegistro"
         Me.TxtFechaRegistro.Size = New System.Drawing.Size(243, 31)
         Me.TxtFechaRegistro.TabIndex = 8
+        '
+        'TxtTipoTumba
+        '
+        Me.TxtTipoTumba.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TxtTipoTumba.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxtTipoTumba.Font = New System.Drawing.Font("Segoe UI", 11.78182!)
+        Me.TxtTipoTumba.FormattingEnabled = True
+        Me.TxtTipoTumba.Items.AddRange(New Object() {"SELECCIONE TIPO DE TUMBA", "DOBLE ", "SENCILLA", "OTRA"})
+        Me.TxtTipoTumba.Location = New System.Drawing.Point(750, 39)
+        Me.TxtTipoTumba.Name = "TxtTipoTumba"
+        Me.TxtTipoTumba.Size = New System.Drawing.Size(243, 33)
+        Me.TxtTipoTumba.TabIndex = 24
         '
         'Label1
         '
@@ -612,13 +615,10 @@ Partial Class Inhumanacion_add
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents TxtNoTumba As TextBox
-    Friend WithEvents TxtSexo As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents TxtPerpetuidad As TextBox
-    Friend WithEvents TxtZona As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
-    Friend WithEvents TxtTipoTumba As TextBox
     Friend WithEvents TxtFechaDefunsion As DateTimePicker
     Friend WithEvents TxtFechaNacimiento As DateTimePicker
     Friend WithEvents Label10 As Label
@@ -630,4 +630,7 @@ Partial Class Inhumanacion_add
     Friend WithEvents _Layout As TableLayoutPanel
     Friend WithEvents PdfContent As Panel
     Friend WithEvents __Pdf As AxAcroPDFLib.AxAcroPDF
+    Friend WithEvents TxtZona As ComboBox
+    Friend WithEvents TxtSexo As ComboBox
+    Friend WithEvents TxtTipoTumba As ComboBox
 End Class
