@@ -7,9 +7,13 @@ Public Class functions
     Dim Db As New Conexion
     Dim RaizData As String = "C:\PanteonData\"
     Dim RaizData_actadefuncion As String = "actas_defuncion\"
+    Dim RaizData_docs_fosa_comun As String = "docs_fosa_comun\"
+    Dim RaizData_doc_cofepris As String = "doc_cofepris\"
+    Dim RaizData_ines As String = "ines\"
     Dim RaizData_SolicitudFiscalia As String = "solicitud_fiscalia\"
 
     Public Shared ListSecciones As New List(Of Integer)
+    Public Shared ListDocs As New List(Of String)
     Public Shared ListSecciones_Lugares As New List(Of Integer)
     Public Shared ListSecciones_LugaresAsignar As New List(Of Integer)
     Public Shared ListSecciones_LugaresAsignados As New List(Of Integer)
@@ -25,6 +29,18 @@ Public Class functions
 
         If Directory.Exists(RaizData + RaizData_actadefuncion) = False Then
             My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_actadefuncion)
+        End If
+
+        If Directory.Exists(RaizData + RaizData_ines) = False Then
+            My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_ines)
+        End If
+
+        If Directory.Exists(RaizData + RaizData_doc_cofepris) = False Then
+            My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_doc_cofepris)
+        End If
+
+        If Directory.Exists(RaizData + RaizData_docs_fosa_comun) = False Then
+            My.Computer.FileSystem.CreateDirectory(RaizData + RaizData_docs_fosa_comun)
         End If
 
         If Directory.Exists(RaizData + RaizData_SolicitudFiscalia) = False Then
@@ -142,7 +158,7 @@ Public Class functions
             TxtDireccionResponsable.Text = ""
             TxtTelefonoResponsable.Text = ""
             r = True
-            Mensaje("Inhumacion agregada", MessageBoxIcon.Information)
+            'Mensaje("Inhumacion agregada", MessageBoxIcon.Information)
         Else
             Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
         End If
@@ -230,6 +246,16 @@ Public Class functions
         txt.Text = file.FileName.Replace("\", "/")
         txt.Enabled = False
     End Sub
+
+    Public Function OpenFileDialogString() As String
+        Dim file As New OpenFileDialog()
+        file.Filter = "Archivo PDF|*.pdf"
+        If file.ShowDialog() = DialogResult.OK Then
+            Dim fs As FileStream = New System.IO.FileStream(file.FileName, FileMode.Open, FileAccess.Read)
+            fs.Close()
+        End If
+        Return file.FileName.Replace("\", "/")
+    End Function
 
     Public Sub DataGridView_Model(ByVal d As DataGridView)
         d.AllowUserToAddRows = False
@@ -480,7 +506,8 @@ Public Class functions
             form.TxtNombreResponsable.Text = dato.GetString(11)
             form.TxtDireccionResponsable.Text = dato.GetString(12)
             form.TxtTelefonoResponsable.Text = dato.GetString(13)
-
+            form.Label2.Text = dato.GetString(15)
+            form.AxAcroPDF1.src = RaizData + RaizData_ines + dato.GetString(16)
 
             form.Show()
         End If
@@ -502,6 +529,25 @@ Public Class functions
             form.Show()
         End If
 
+    End Sub
+
+    Public Sub ExhumacionDetails(ByVal item As String)
+        Dim dato = Db.Consult("SELECT * FROM `exhumaciones` where TxtFolio = '" + item + "' ")
+
+        If dato.Read() Then
+            Dim form As New ExhumacionesDetails
+
+            form.TxtFolio.Text = "FOLIO: " + dato.GetString(0) + " | FINADO: " + dato.GetString(1)
+            form.TxtNoOrden.Text = "NO. ORDEN: " + dato.GetString(2)
+            form.TxtFecha.Text = "FECHA: " + dato.GetString(3)
+            form.TxtSituacion.Text = "SITUACION: " + dato.GetString(5)
+            form.TxtSolicitando.Text = "SOLICITA: " + dato.GetString(6)
+            form.solicitado.Text = "AUTORIDAD: " + dato.GetString(8)
+            form.motivo.Text = "MOTIVO: " + dato.GetString(9)
+            form._pdf.src = RaizData + RaizData_doc_cofepris + dato.GetString(7)
+
+            form.Show()
+        End If
     End Sub
 
     Public Sub InhumanacionEdit(ByVal item As String)
@@ -627,6 +673,17 @@ Public Class functions
 
     Public Function InhumanacionRecovery(ByVal item As Int32) As Boolean
         Return Db.Ejecutar("UPDATE `inhumaciones` SET `_delete` = '0' WHERE id = " + item.ToString + " ")
+    End Function
+
+    Public Function InhumanacionAddINEAndfinish(ByVal item As Int32, ByVal finaliza As DateTimePicker, ByVal TxtAdjuntar As String) As Boolean
+        Dim url_pdf As String = ""
+
+        If String.IsNullOrEmpty(TxtAdjuntar) = False Then
+            url_pdf = DateTime.Now.ToString.Replace(":", "").Replace(" ", "").Replace("/", "") + ".pdf"
+            My.Computer.FileSystem.CopyFile(TxtAdjuntar, RaizData + RaizData_ines + url_pdf)
+        End If
+
+        Return Db.Ejecutar("UPDATE inhumaciones SET f_vencimiento = '" + FechaFormatDB(finaliza) + "', ine = '" + url_pdf + "' WHERE id = " + item.ToString + ";")
     End Function
 
     Public Function InhumanaciondeleteForEver(ByVal item As Int32) As Boolean
@@ -758,6 +815,20 @@ Public Class functions
 
     End Sub
 
+    Public Sub ExhumanacionPagar(ByVal item As String)
+        Dim dato = Db.Consult("SELECT * FROM inhumaciones WHERE id = '" + item + "' ")
+
+        If dato.Read() Then
+            Dim form As New Inhumanacion_pagar
+            form.id = item
+            form.TxtNombre.Text = dato.GetString(1)
+            form.TxtDireccionResponsable.Text = dato.GetString(12)
+            form.TxtNombreResponsable.Text = dato.GetString(11)
+            form.Show()
+        End If
+
+    End Sub
+
     Public Sub Papelera()
         Dim form As New papelera
         form.loading()
@@ -806,7 +877,7 @@ Public Class functions
         t.Columns.Clear()
         t.Rows.Clear()
 
-        Dim dato = Db.Consult("SELECT p.id, P.descripcion, p.concepto, p.fecha, p.monto, p.preseidente, i.TxtNombre, i.TxtSexo, i.TxtZona, i.TxtNoTumba, i.TxtTipoTumba, i.TxtNombreResponsable FROM inhumaciones_pagos p, inhumaciones i WHERE p.inhumanacion = i.id  and p.id = '" + id.ToString + "' ")
+        Dim dato = Db.Consult("SELECT p.id, P.descripcion, p.concepto, p.fecha, p.monto, p.preseidente, i.TxtNombre, i.TxtSexo, i.TxtZona, i.TxtNoTumba, i.TxtTipoTumba, i.TxtNombreResponsable, i.f_vencimiento FROM inhumaciones_pagos p, inhumaciones i WHERE p.inhumanacion = i.id  and p.id = '" + id.ToString + "' ")
 
         t.Columns.Add("id", "FOLIO")
         t.Columns.Add("descripcion", "DESCRIPCION")
@@ -817,6 +888,7 @@ Public Class functions
 
         If dato.HasRows Then
             Do While dato.Read()
+                details += vbLf + "F. VENCIMIENTO: " + dato.GetString(12)
                 details += vbLf + "RESPONSABLE: " + dato.GetString(11)
                 details += vbLf + "DIFUNTO: " + dato.GetString(6)
                 details += vbLf + "SEXO: " + dato.GetString(7)
@@ -954,11 +1026,21 @@ Public Class functions
         ByVal TxtHora As DateTimePicker,
         ByVal TxtFolio As TextBox,
         ByVal TxtSituacion As ComboBox,
-        ByVal TxtSolicitando As TextBox
+        ByVal TxtSolicitando As TextBox,
+        ByVal TxtAdjuntar As TextBox,
+        ByVal ComboSolicitado As ComboBox,
+        ByVal ComboMotivo As ComboBox,
+        ByVal TxtPago As TextBox
     )
+        Dim url_pdf As String = ""
         Dim r As Boolean = False
 
-        If Db.Ejecutar("INSERT INTO `exhumaciones` (`TxtFolio`, `TxtFinado`, `TxtNoOrden`, `TxtFecha`, `TxtHora`, `TxtSituacion`, `TxtSolicitando`) VALUES ('" + TxtFolio.Text + "', '" + TxtFinado.Text + "', '" + TxtNoOrden.Text + "', '" + FechaFormatDB(TxtFecha) + "', '" + TimeFormatDB(TxtHora) + "', '" + TxtSituacion.Text + "', '" + TxtSolicitando.Text + "');") Then
+        If String.IsNullOrEmpty(TxtAdjuntar.Text) = False Then
+            url_pdf = DateTime.Now.ToString.Replace(":", "").Replace(" ", "").Replace("/", "") + ".pdf"
+            My.Computer.FileSystem.CopyFile(TxtAdjuntar.Text, RaizData + RaizData_doc_cofepris + url_pdf)
+        End If
+
+        If Db.Ejecutar("INSERT INTO `exhumaciones` (`TxtFolio`, `TxtFinado`, `TxtNoOrden`, `TxtFecha`, `TxtHora`, `TxtSituacion`, `TxtSolicitando`, `doc_cofepris`, `solicitado`, `motivo`, `pago`) VALUES ('" + TxtFolio.Text + "', '" + TxtFinado.Text + "', '" + TxtNoOrden.Text + "', '" + FechaFormatDB(TxtFecha) + "', '" + TimeFormatDB(TxtHora) + "', '" + TxtSituacion.Text + "', '" + TxtSolicitando.Text + "', '" + url_pdf + "', '" + ComboSolicitado.Text + "', '" + ComboMotivo.Text + "', " + TxtPago.Text + ");") Then
             TxtFinado.Text = ""
             TxtNoOrden.Text = ""
             TxtFecha.Value = DateTime.Now
@@ -966,8 +1048,10 @@ Public Class functions
             TxtFolio.Text = ""
             TxtSituacion.SelectedIndex = 0
             TxtSolicitando.Text = ""
+            TxtAdjuntar.Text = ""
+            ComboSolicitado.SelectedIndex = 0
+            ComboMotivo.SelectedIndex = 0
             r = True
-            Mensaje("Exhumacion agregada", MessageBoxIcon.Information)
         Else
             Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
         End If
@@ -983,6 +1067,24 @@ Public Class functions
         Do While dato.Read()
             ListSecciones.Add(dato.GetString(0))
             c.Items.Add(dato.GetString(1))
+        Loop
+        If c.Items.Count > 0 Then
+            c.SelectedIndex = 0
+        End If
+    End Sub
+
+    Public Sub Combobox_Documentos(ByVal c As ComboBox, ByVal id As String)
+        c.Items.Clear()
+        ListDocs.Clear()
+
+        Dim dato = Db.Consult("SELECT * FROM `fosa_comun_docs` order by nombre asc")
+
+        ListDocs.Add("0")
+        c.Items.Add("Seleccione un documento")
+
+        Do While dato.Read()
+            ListDocs.Add(RaizData + RaizData_docs_fosa_comun + dato.GetString(2))
+            c.Items.Add(dato.GetString(3))
         Loop
         If c.Items.Count > 0 Then
             c.SelectedIndex = 0
@@ -1232,6 +1334,20 @@ Public Class functions
         Return r
     End Function
 
+    Public Function LoadValuesUser(ByVal name_user, ByVal name_username, ByVal nivel) As Boolean
+        Dim r As Boolean = False
+
+        Dim dato = Db.Consult("SELECT u.username, u.name, if (u.is_admin = 1, 'ADMINISTRADOR', 'NO ADMINISTRADOR') AS level FROM users u where id  = '" + id_user + "' ")
+
+        If dato.Read() Then
+            name_username.text = dato.GetString(0)
+            name_user.text = dato.GetString(1)
+            nivel.text = dato.GetString(2)
+        End If
+
+        Return r
+    End Function
+
     Public Sub EspaciosAsignaciones_Consultas(ByVal sql As String, ByVal t As DataGridView)
         t.Columns.Clear()
         t.Rows.Clear()
@@ -1263,67 +1379,6 @@ Public Class functions
         Return Db.Ejecutar("INSERT INTO `users` (`username`, `password`, `name`, `is_admin`) VALUES ('" + TxtUsername.Text + "', '" + EncriptMD5(TxtPassword.Text) + "', '" + TxtNombre.Text + "', '" + admin.ToString + "');")
     End Function
 
-    Public Sub DesktopCheats(ByVal l_asignados As Label, ByVal t_inhumanaciones As Label, ByVal exhumanaciones As Label, ByVal f_comun As Label, ByVal name_user As Label, ByVal name_username As Label, ByVal nivel As Label, ByVal total_hoy As Label, ByVal log_hoy As Label)
-        Dim dato = Db.Consult("
-            SELECT COUNT(id) as conteo FROM espacios_secciones_lugares where ocupado = 1 UNION ALL
-            SELECT COUNT(id) as conteo FROM espacios_secciones_lugares UNION ALL
-            SELECT COUNT(Txtfolio) as conteo FROM exhumaciones UNION ALL
-            SELECT COUNT(Txtfolio) as conteo FROM fosa_comun UNION ALL
-            SELECT COUNT(TxtNombre) as conteo FROM inhumaciones
-        ")
-
-        Dim cont = 1
-        Dim total = 0
-
-        Do While dato.Read()
-            If cont = 1 Then
-                l_asignados.Text = "(" + dato.GetString(0) + ") LUGARES ASIGNADOS DE UN TOTAL DE: ("
-            ElseIf cont = 2 Then
-                l_asignados.Text += dato.GetString(0) + ") LUGARES"
-            ElseIf cont = 3 Then
-                exhumanaciones.Text = "(" + dato.GetString(0) + ") EXHUMANACIONES REGISTRADAS"
-            ElseIf cont = 4 Then
-                f_comun.Text = "TOTAL, FOSA COMUN: (" + dato.GetString(0) + ")"
-            ElseIf cont = 5 Then
-                t_inhumanaciones.Text = "TOTAL, INHUMANACIONES: (" + dato.GetString(0) + ")"
-            End If
-            cont += 1
-        Loop
-
-        'Datos de usuario
-        dato = Db.Consult("SELECT username, name, if (is_admin = 1, 'ADMINISTRADOR', 'STAFF') as nivel FROM `users`  WHERE id = '" + id_user + "' ")
-
-        If dato.Read() Then
-            name_user.Text = dato.GetString(1)
-            name_username.Text = dato.GetString(0)
-            nivel.Text = dato.GetString(2)
-        End If
-
-        'Registro de hoy - Inhumanaciones
-        log_hoy.Text = ""
-        dato = Db.Consult("SELECT i.TxtNombre, p.concepto, p.monto FROM inhumaciones_pagos p, inhumaciones i WHERE p.inhumanacion = i.id and  p.fecha BETWEEN NOW() - INTERVAL 1 DAY AND NOW()")
-
-        cont = 1
-        Do While dato.Read()
-            log_hoy.Text += "INHUMANACION: " + dato.GetString(0) + ", CONCEPTO: " + dato.GetString(1) + ", $ " + dato.GetString(2) + " MXN" + vbLf
-            total += Double.Parse(dato.GetString(2))
-            cont += 1
-        Loop
-
-        'Registro de hoy - Espacios
-        dato = Db.Consult("SELECT a.TxtCosto, i.TxtNombre, s.nombre , l.nombre FROM espacios_asignacion a, inhumaciones i, espacios_secciones_lugares l, espacios_secciones s  WHERE a.inhumacion = i.id and a.espacios_secciones_lugares = l.id and l.seccion = s.id and  a.registro BETWEEN NOW() - INTERVAL 1 DAY AND NOW()")
-
-        Do While dato.Read()
-            log_hoy.Text += "ASIGNACION DE ESPACIO: " + dato.GetString(1) + ", LUGAR: " + dato.GetString(2) + " - " + dato.GetString(3) + ", $ " + dato.GetString(0) + " MXN" + vbLf
-            total += Double.Parse(dato.GetString(0))
-            cont += 1
-        Loop
-
-        cont = cont - 1
-        total_hoy.Text = "INGRESOS HOY $ " + total.ToString + " MXN"
-        log_hoy.Text = "TOTAL DE MOVIMIENTOS: " + cont.ToString + vbLf + log_hoy.Text
-
-    End Sub
 
     Public Function InhumanacionLastID() As Integer
         Dim r As Integer = 0
@@ -1334,6 +1389,23 @@ Public Class functions
             r = Integer.Parse(dato.GetString(0))
         End If
 
+        Return r
+    End Function
+
+    Public Function DocsFosaComunAdd(ByVal TxtAdjuntar As String, ByVal TxtNombre As TextBox, ByVal folio As String)
+        Dim url_pdf As String = ""
+        Dim r As Boolean = False
+
+        If String.IsNullOrEmpty(TxtAdjuntar) = False Then
+            url_pdf = DateTime.Now.ToString.Replace(":", "").Replace(" ", "").Replace("/", "") + ".pdf"
+            My.Computer.FileSystem.CopyFile(TxtAdjuntar, RaizData + RaizData_docs_fosa_comun + url_pdf)
+        End If
+
+        If Db.Ejecutar("INSERT INTO `fosa_comun_docs` (`fosa_comun_folio`, `ruta`, `nombre`) VALUES ('" + folio + "', '" + url_pdf + "', '" + TxtNombre.Text + "');") Then
+            r = True
+        Else
+            Mensaje("No es posible realizar la operacion en este momento", MessageBoxIcon.Warning)
+        End If
         Return r
     End Function
 

@@ -43,9 +43,9 @@
 
     End Sub
 
-    Private Sub _loadCheats()
-        f.DesktopCheats(l_asignados, t_inhumanaciones, exhumanaciones, f_comun, name_user, name_username, nivel, total_hoy, log_hoy)
+    Public Sub _loadCheats()
         Desktop.Controls.Add(Principal)
+        f.LoadValuesUser(name_user, name_username, nivel)
     End Sub
 
     Private Sub ArchivoToolStripMenuItem_DoubleClick(sender As Object, e As EventArgs)

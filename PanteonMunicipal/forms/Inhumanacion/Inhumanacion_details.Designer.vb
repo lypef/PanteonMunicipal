@@ -59,11 +59,17 @@ Partial Class Inhumanacion_details
         Me.Label22 = New System.Windows.Forms.Label()
         Me.TxtNombreResponsable = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.AxAcroPDF1 = New AxAcroPDFLib.AxAcroPDF()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.Pdf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Pdf
@@ -73,7 +79,7 @@ Partial Class Inhumanacion_details
         Me.Pdf.Location = New System.Drawing.Point(3, 20)
         Me.Pdf.Name = "Pdf"
         Me.Pdf.OcxState = CType(resources.GetObject("Pdf.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.Pdf.Size = New System.Drawing.Size(741, 352)
+        Me.Pdf.Size = New System.Drawing.Size(519, 352)
         Me.Pdf.TabIndex = 0
         '
         'GroupBox1
@@ -82,7 +88,7 @@ Partial Class Inhumanacion_details
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI Black", 7.854546!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(747, 375)
+        Me.GroupBox1.Size = New System.Drawing.Size(525, 375)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "ACTA DE DEFUNCION"
@@ -92,7 +98,7 @@ Partial Class Inhumanacion_details
         Me.Button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.Button1.Location = New System.Drawing.Point(12, 653)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(747, 55)
+        Me.Button1.Size = New System.Drawing.Size(1028, 55)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "OK"
         Me.Button1.UseVisualStyleBackColor = False
@@ -109,6 +115,8 @@ Partial Class Inhumanacion_details
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.TxtFechaRegistro)
         Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.TxtFechaDefunsion)
@@ -130,7 +138,7 @@ Partial Class Inhumanacion_details
         Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI Black", 7.854546!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(12, 393)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(747, 124)
+        Me.GroupBox2.Size = New System.Drawing.Size(1031, 124)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "DIFUNTO"
@@ -159,17 +167,17 @@ Partial Class Inhumanacion_details
         '
         Me.TxtFechaDefunsion.AutoSize = True
         Me.TxtFechaDefunsion.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFechaDefunsion.Location = New System.Drawing.Point(562, 83)
+        Me.TxtFechaDefunsion.Location = New System.Drawing.Point(473, 86)
         Me.TxtFechaDefunsion.Name = "TxtFechaDefunsion"
-        Me.TxtFechaDefunsion.Size = New System.Drawing.Size(158, 21)
+        Me.TxtFechaDefunsion.Size = New System.Drawing.Size(186, 21)
         Me.TxtFechaDefunsion.TabIndex = 20
-        Me.TxtFechaDefunsion.Text = "2019-11-03 00:00:00"
+        Me.TxtFechaDefunsion.Text = "2020-11-03 00:00:00 AM"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(453, 83)
+        Me.Label12.Location = New System.Drawing.Point(371, 86)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(103, 21)
         Me.Label12.TabIndex = 19
@@ -179,17 +187,17 @@ Partial Class Inhumanacion_details
         '
         Me.TxtFechaNacimiento.AutoSize = True
         Me.TxtFechaNacimiento.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFechaNacimiento.Location = New System.Drawing.Point(288, 83)
+        Me.TxtFechaNacimiento.Location = New System.Drawing.Point(146, 86)
         Me.TxtFechaNacimiento.Name = "TxtFechaNacimiento"
-        Me.TxtFechaNacimiento.Size = New System.Drawing.Size(158, 21)
+        Me.TxtFechaNacimiento.Size = New System.Drawing.Size(186, 21)
         Me.TxtFechaNacimiento.TabIndex = 16
-        Me.TxtFechaNacimiento.Text = "2019-11-03 00:00:00"
+        Me.TxtFechaNacimiento.Text = "2020-11-03 00:00:00 AM"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(169, 83)
+        Me.Label16.Location = New System.Drawing.Point(13, 86)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(113, 21)
         Me.Label16.TabIndex = 15
@@ -199,7 +207,7 @@ Partial Class Inhumanacion_details
         '
         Me.TxtTipoTumba.AutoSize = True
         Me.TxtTipoTumba.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTipoTumba.Location = New System.Drawing.Point(87, 83)
+        Me.TxtTipoTumba.Location = New System.Drawing.Point(866, 50)
         Me.TxtTipoTumba.Name = "TxtTipoTumba"
         Me.TxtTipoTumba.Size = New System.Drawing.Size(73, 21)
         Me.TxtTipoTumba.TabIndex = 14
@@ -209,7 +217,7 @@ Partial Class Inhumanacion_details
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(9, 83)
+        Me.Label18.Location = New System.Drawing.Point(788, 50)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(79, 21)
         Me.Label18.TabIndex = 13
@@ -392,7 +400,7 @@ Partial Class Inhumanacion_details
         Me.GroupBox4.Font = New System.Drawing.Font("Segoe UI Black", 7.854546!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.Location = New System.Drawing.Point(12, 523)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(747, 124)
+        Me.GroupBox4.Size = New System.Drawing.Size(1031, 124)
         Me.GroupBox4.TabIndex = 23
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "RESPONSABLE"
@@ -457,11 +465,53 @@ Partial Class Inhumanacion_details
         Me.Label24.TabIndex = 3
         Me.Label24.Text = "Nombre:"
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.AxAcroPDF1)
+        Me.GroupBox5.Font = New System.Drawing.Font("Segoe UI Black", 7.854546!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.Location = New System.Drawing.Point(543, 12)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(500, 375)
+        Me.GroupBox5.TabIndex = 2
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "IDENTIFICACION INE"
+        '
+        'AxAcroPDF1
+        '
+        Me.AxAcroPDF1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AxAcroPDF1.Enabled = True
+        Me.AxAcroPDF1.Location = New System.Drawing.Point(3, 20)
+        Me.AxAcroPDF1.Name = "AxAcroPDF1"
+        Me.AxAcroPDF1.OcxState = CType(resources.GetObject("AxAcroPDF1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDF1.Size = New System.Drawing.Size(494, 352)
+        Me.AxAcroPDF1.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.818182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(815, 86)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(186, 21)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "2020-11-03 00:00:00 AM"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.818182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(697, 86)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(120, 21)
+        Me.Label3.TabIndex = 23
+        Me.Label3.Text = "F. Vencimiento:"
+        '
         'Inhumanacion_details
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(771, 721)
+        Me.ClientSize = New System.Drawing.Size(1052, 721)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -480,6 +530,8 @@ Partial Class Inhumanacion_details
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -520,4 +572,8 @@ Partial Class Inhumanacion_details
     Public WithEvents TxtTelefonoResponsable As Label
     Public WithEvents TxtDireccionResponsable As Label
     Public WithEvents TxtNombreResponsable As Label
+    Friend WithEvents GroupBox5 As GroupBox
+    Public WithEvents AxAcroPDF1 As AxAcroPDFLib.AxAcroPDF
+    Public WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class

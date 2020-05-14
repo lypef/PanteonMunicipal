@@ -25,10 +25,20 @@
 
     Private Sub Table_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles Table.CellDoubleClick
         item = Table.SelectedCells(0).Value
+        If String.IsNullOrEmpty(item) = False Then
+            f.ExhumacionDetails(item)
+        Else
+            f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 
     Private Sub Table_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles Table.CellMouseClick
         item = Table.SelectedCells(0).Value
+        If String.IsNullOrEmpty(item) = False Then
+            f.ExhumacionDetails(item)
+        Else
+            f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+        End If
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click

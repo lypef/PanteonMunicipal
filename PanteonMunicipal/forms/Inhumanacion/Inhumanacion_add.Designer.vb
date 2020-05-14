@@ -77,7 +77,7 @@ Partial Class Inhumanacion_add
         Me.GUARDAR.Name = "GUARDAR"
         Me.GUARDAR.Size = New System.Drawing.Size(996, 83)
         Me.GUARDAR.TabIndex = 13
-        Me.GUARDAR.Text = "GUARDAR"
+        Me.GUARDAR.Text = "CONTINUAR"
         Me.GUARDAR.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel2
@@ -179,6 +179,7 @@ Partial Class Inhumanacion_add
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(996, 61)
         Me.TableLayoutPanel1.TabIndex = 14
         '

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-01-2020 a las 06:26:09
+-- Tiempo de generación: 14-05-2020 a las 02:49:11
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 5.6.38
 
@@ -110,23 +110,17 @@ INSERT INTO `espacios_secciones_lugares` (`id`, `seccion`, `nombre`, `ocupado`) 
 
 CREATE TABLE `exhumaciones` (
   `TxtFolio` varchar(254) NOT NULL,
-  `TxtFinado` varchar(254) NOT NULL,
-  `TxtNoOrden` varchar(254) NOT NULL,
-  `TxtFecha` date NOT NULL,
-  `TxtHora` time NOT NULL,
-  `TxtSituacion` varchar(254) NOT NULL,
-  `TxtSolicitando` varchar(254) NOT NULL
+  `TxtFinado` varchar(254) NOT NULL DEFAULT 'FINADO  DESCONOCIDO',
+  `TxtNoOrden` varchar(254) NOT NULL DEFAULT 'NO. ORDEN',
+  `TxtFecha` date DEFAULT NULL,
+  `TxtHora` time DEFAULT NULL,
+  `TxtSituacion` varchar(254) NOT NULL DEFAULT 'SITUACION',
+  `TxtSolicitando` varchar(254) NOT NULL DEFAULT 'SOLICITANDO',
+  `doc_cofepris` varchar(254) NOT NULL,
+  `solicitado` varchar(254) NOT NULL DEFAULT 'SOLICITADO',
+  `motivo` varchar(254) NOT NULL DEFAULT 'MOTIVO',
+  `pago` decimal(65,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `exhumaciones`
---
-
-INSERT INTO `exhumaciones` (`TxtFolio`, `TxtFinado`, `TxtNoOrden`, `TxtFecha`, `TxtHora`, `TxtSituacion`, `TxtSolicitando`) VALUES
-('cscscscsc', 'scscscsc', 'cscscsc', '2019-11-25', '23:14:37', '1.- INHUMANACION', 'scscsc'),
-('dwdwdwd', 'wdwdwd', 'dwdwdwdw', '2019-11-25', '23:16:46', '1.- INHUMANACION', 'wdwdwd'),
-('dwdwdwdw', 'dwdwdwdwd', 'dwdwdwdwd', '2019-11-25', '23:14:30', 'SITUACION', 'wdwdwdwd'),
-('wdwdw', 'xcefd', 'dwdwdwdwdwdw', '2019-11-25', '23:14:43', '1.- INHUMANACION', 'wwdwdw');
 
 -- --------------------------------------------------------
 
@@ -147,11 +141,32 @@ CREATE TABLE `fosa_comun` (
 --
 
 INSERT INTO `fosa_comun` (`TxtFolio`, `TxtFuneraria`, `TxtSexo`, `TxtUbicacion`, `TxtFiscalia`) VALUES
-('AEDF9218-DD-D', 'X', 'MASCULINO', 'UBICACION DEL CUERPO', '07112019161531.pdf'),
-('FOLIO', 'FUNERARIA', 'FEMENINO', 'UBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL CUERPOUBICACION DEL ', '07112019161544.pdf'),
-('FOLIO UPDATE', 'FUNERARIA UPDATE', 'FEMENINO', 'UBICACION UPDATE', '07112019161512.pdf'),
-('kjhjkhkjheee', 'jkhjkhjkee', 'SELECCIONE UN SEXOee', 'vcedfefefeee', '07112019151119.pdfeeee'),
-('www', 'www', 'www', 'www', 'wwww');
+('AEDF9218-DD-D', 'X', 'MASCULINO', 'UBICACION DEL CUERPO', '07112019161531.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fosa_comun_docs`
+--
+
+CREATE TABLE `fosa_comun_docs` (
+  `id` int(11) NOT NULL,
+  `fosa_comun_folio` varchar(254) NOT NULL,
+  `ruta` varchar(254) NOT NULL,
+  `nombre` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `fosa_comun_docs`
+--
+
+INSERT INTO `fosa_comun_docs` (`id`, `fosa_comun_folio`, `ruta`, `nombre`) VALUES
+(1, 'AEDF9218-DD-D', '1', '1'),
+(2, 'AEDF9218-DD-D', '2', '2'),
+(3, 'AEDF9218-DD-D', '3', '3'),
+(4, 'AEDF9218-DD-D', '4', '4'),
+(5, 'AEDF9218-DD-D', '13052020074403p.m..pdf', 'FICHA'),
+(6, 'AEDF9218-DD-D', '13052020074418p.m..pdf', 'TICKET');
 
 -- --------------------------------------------------------
 
@@ -174,21 +189,22 @@ CREATE TABLE `inhumaciones` (
   `TxtNombreResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
   `TxtDireccionResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
   `TxtTelefonoResponsable` varchar(254) NOT NULL DEFAULT 'Ninguno',
-  `_delete` tinyint(1) NOT NULL DEFAULT '0'
+  `_delete` tinyint(1) NOT NULL DEFAULT '0',
+  `f_vencimiento` date NOT NULL,
+  `ine` varchar(254) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `inhumaciones`
 --
 
-INSERT INTO `inhumaciones` (`id`, `TxtNombre`, `TxtSexo`, `TxtZona`, `TxtPerpetuidad`, `TxtNoTumba`, `TxtFechaNacimiento`, `TxtFechaDefunsion`, `TxtFechaRegistro`, `TxtTipoTumba`, `TxtAdjuntar`, `TxtNombreResponsable`, `TxtDireccionResponsable`, `TxtTelefonoResponsable`, `_delete`) VALUES
-(3, 'ESTA ES UNA PRUEBA DE ACTUALIZACION', 'OTRO', 'ZONA SUR', '3JKN3KJ3NJ33J3NJ', 'KNKLNKLN', '2019-11-01', '2019-11-02', '2019-11-03', '', '4112019224117.pdf', 'NOMBRE COMPLETO CON APELLIDOS DEL ENCARGADO', '20 de noviembre, no. 306, col. centro.', '1651515', 0),
-(4, 'frgfbfgdb', 'bfdbdf', 'fdbfdbfdbffdbfdbfbfd', 'fbbfdbfd', 'dfbfdb', '2019-11-21', '2019-11-21', '2019-11-21', 'fdbfbfbfdb', '2111201924423.pdf', 'fdbfdbfb', 'fdbfb', '', 1),
-(5, 'aaaa', 'aa', 'aaa', 'aa', 'aa', '2019-11-26', '2019-11-26', '2019-11-26', '', '2611201904625.pdf', 'aaa', 'aa', 'a', 1),
-(6, 'aaaa', 'Masculino', 'B', 'aaaaa', '5146515151', '2020-01-16', '2020-01-16', '2020-01-16', 'aaaaa', '16012020222540.pdf', 'aaaa', 'aaaaa', '', 0),
-(7, 'dqwd', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'q', 'q', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020223506.pdf', '', '', '', 1),
-(8, 'efewfefefef', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'fefefe', 'efefef', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020224123.pdf', '', '', '', 0),
-(9, 'dwdwdwdwd', 'SELECCIONE SEXO', 'SELECCIONE ZONA', 'dwdwdw', 'wdwdwd', '2020-01-16', '2020-01-16', '2020-01-16', 'SELECCIONE TIPO DE TUMBA', '16012020224153.pdf', '', '', '', 1);
+INSERT INTO `inhumaciones` (`id`, `TxtNombre`, `TxtSexo`, `TxtZona`, `TxtPerpetuidad`, `TxtNoTumba`, `TxtFechaNacimiento`, `TxtFechaDefunsion`, `TxtFechaRegistro`, `TxtTipoTumba`, `TxtAdjuntar`, `TxtNombreResponsable`, `TxtDireccionResponsable`, `TxtTelefonoResponsable`, `_delete`, `f_vencimiento`, `ine`) VALUES
+(3, '', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020075102p.m..pdf', '', '', '', 0, '2020-05-11', '11052020075105p.m..pdf'),
+(4, 'wdwdwd', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020075330p.m..pdf', '', '', '', 0, '2020-05-11', '11052020075334p.m..pdf'),
+(5, 'rgrgrgr', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020075610p.m..pdf', '', '', '', 0, '0000-00-00', ''),
+(6, 'dwdwdw', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020075637p.m..pdf', '', '', '', 0, '2027-05-11', '11052020075640p.m..pdf'),
+(7, 'DIFUNTO NO. UNO', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020080505p.m..pdf', '', '', '', 0, '2027-05-11', '11052020080510p.m..pdf'),
+(8, 'w4fgewfewfe', 'SELECCIONE SEXO', 'SELECCIONE ZONA', '', '', '2020-05-11', '2020-05-11', '2020-05-11', 'SELECCIONE TIPO DE TUMBA', '11052020080830p.m..pdf', '', '', '', 0, '2027-05-11', '11052020080833p.m..pdf');
 
 -- --------------------------------------------------------
 
@@ -215,7 +231,9 @@ INSERT INTO `inhumaciones_pagos` (`id`, `inhumanacion`, `descripcion`, `concepto
 (8, 3, 'aa', 'aaa', 1, 'a', '2019-11-05 16:00:22'),
 (9, 3, 'desc', 'concepto 9', 1450, 'Fatima Yadira Soto Petic', '2019-11-05 16:05:18'),
 (10, 3, 'ss', 'sss', 1500, 'Fatima Yadira Soto Petic', '2019-11-21 01:45:25'),
-(12, 9, 'wdwdwdwdwdwd', 'wdwdwdwd', 1500, 'Fatima Yadira Soto Petic', '2020-01-16 22:42:06');
+(12, 9, 'wdwdwdwdwdwd', 'wdwdwdwd', 1500, 'Fatima Yadira Soto Petic', '2020-01-16 22:42:06'),
+(13, 7, 'PAGO', 'PAGHO ', 1500, 'Fatima Yadira Soto Petic', '2020-05-11 20:05:23'),
+(14, 8, 'ewfwefe', 'ewfew', 333, 'Fatima Yadira Soto Petic', '2020-05-11 20:08:39');
 
 -- --------------------------------------------------------
 
@@ -276,6 +294,13 @@ ALTER TABLE `fosa_comun`
   ADD PRIMARY KEY (`TxtFolio`);
 
 --
+-- Indices de la tabla `fosa_comun_docs`
+--
+ALTER TABLE `fosa_comun_docs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fosa_comun` (`fosa_comun_folio`);
+
+--
 -- Indices de la tabla `inhumaciones`
 --
 ALTER TABLE `inhumaciones`
@@ -317,16 +342,22 @@ ALTER TABLE `espacios_secciones_lugares`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
+-- AUTO_INCREMENT de la tabla `fosa_comun_docs`
+--
+ALTER TABLE `fosa_comun_docs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `inhumaciones`
 --
 ALTER TABLE `inhumaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `inhumaciones_pagos`
 --
 ALTER TABLE `inhumaciones_pagos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -350,6 +381,12 @@ ALTER TABLE `espacios_asignacion`
 --
 ALTER TABLE `espacios_secciones_lugares`
   ADD CONSTRAINT `seccion_lugar` FOREIGN KEY (`seccion`) REFERENCES `espacios_secciones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `fosa_comun_docs`
+--
+ALTER TABLE `fosa_comun_docs`
+  ADD CONSTRAINT `fosa_comun` FOREIGN KEY (`fosa_comun_folio`) REFERENCES `fosa_comun` (`TxtFolio`);
 
 --
 -- Filtros para la tabla `inhumaciones_pagos`

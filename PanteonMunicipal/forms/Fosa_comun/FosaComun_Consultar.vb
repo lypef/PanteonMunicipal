@@ -95,4 +95,14 @@
             search()
         End If
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        If String.IsNullOrEmpty(item) = False Then
+            FosaComunAddDocs._loader(item)
+            FosaComunAddDocs.Show()
+
+        Else
+            f.Mensaje("Seleccione un elemento", MsgBoxStyle.Exclamation)
+        End If
+    End Sub
 End Class

@@ -22,18 +22,31 @@ Partial Class platform
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(platform))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrincipalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PapeleraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InhumacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExhumacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FosaComunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GESTIONARToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdquisicionDeEspacioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConsultasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LugaresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevaSeccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AgregarLugarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Desktop = New System.Windows.Forms.Panel()
         Me.Principal = New System.Windows.Forms.TableLayoutPanel()
-        Me.log_hoy = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.total_hoy = New System.Windows.Forms.Label()
-        Me.totaleles = New System.Windows.Forms.TableLayoutPanel()
-        Me.f_comun = New System.Windows.Forms.Label()
-        Me.exhumanaciones = New System.Windows.Forms.Label()
-        Me.t_inhumanaciones = New System.Windows.Forms.Label()
-        Me.l_asignados = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.name_user = New System.Windows.Forms.Label()
         Me.name_username = New System.Windows.Forms.Label()
@@ -46,35 +59,31 @@ Partial Class platform
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrincipalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.InhumacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AltaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PagosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExhumacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FosaComunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AdquisicionDeEspacioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConsultasToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LugaresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevaSeccionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AgregarLugarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NuevoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GESTIONARToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AgregarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PapeleraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.Desktop.SuspendLayout()
         Me.Principal.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
-        Me.totaleles.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -88,6 +97,164 @@ Partial Class platform
         Me.MenuStrip1.Size = New System.Drawing.Size(1400, 40)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrincipalToolStripMenuItem, Me.PapeleraToolStripMenuItem, Me.ToolStripMenuItem2})
+        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Black
+        Me.ToolStripMenuItem1.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 36)
+        Me.ToolStripMenuItem1.Text = "ARCHIVO"
+        '
+        'PrincipalToolStripMenuItem
+        '
+        Me.PrincipalToolStripMenuItem.Name = "PrincipalToolStripMenuItem"
+        Me.PrincipalToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
+        Me.PrincipalToolStripMenuItem.Text = "Principal"
+        '
+        'PapeleraToolStripMenuItem
+        '
+        Me.PapeleraToolStripMenuItem.Name = "PapeleraToolStripMenuItem"
+        Me.PapeleraToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
+        Me.PapeleraToolStripMenuItem.Text = "Papelera"
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(184, 36)
+        Me.ToolStripMenuItem2.Text = "Salir"
+        '
+        'InhumacionToolStripMenuItem
+        '
+        Me.InhumacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.ConsultasToolStripMenuItem, Me.PagosToolStripMenuItem})
+        Me.InhumacionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
+        Me.InhumacionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.InhumacionToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.InhumacionToolStripMenuItem.Name = "InhumacionToolStripMenuItem"
+        Me.InhumacionToolStripMenuItem.Size = New System.Drawing.Size(196, 36)
+        Me.InhumacionToolStripMenuItem.Text = "INHUMACION"
+        '
+        'AltaToolStripMenuItem
+        '
+        Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
+        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.AltaToolStripMenuItem.Text = "Alta"
+        '
+        'ConsultasToolStripMenuItem
+        '
+        Me.ConsultasToolStripMenuItem.Name = "ConsultasToolStripMenuItem"
+        Me.ConsultasToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.ConsultasToolStripMenuItem.Text = "Consultas"
+        '
+        'PagosToolStripMenuItem
+        '
+        Me.PagosToolStripMenuItem.Name = "PagosToolStripMenuItem"
+        Me.PagosToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.PagosToolStripMenuItem.Text = "Pagos"
+        '
+        'ExhumacionToolStripMenuItem
+        '
+        Me.ExhumacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultasToolStripMenuItem1})
+        Me.ExhumacionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
+        Me.ExhumacionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.ExhumacionToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.ExhumacionToolStripMenuItem.Name = "ExhumacionToolStripMenuItem"
+        Me.ExhumacionToolStripMenuItem.Size = New System.Drawing.Size(198, 36)
+        Me.ExhumacionToolStripMenuItem.Text = "EXHUMACION"
+        '
+        'NuevoToolStripMenuItem
+        '
+        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
+        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        '
+        'ConsultasToolStripMenuItem1
+        '
+        Me.ConsultasToolStripMenuItem1.Name = "ConsultasToolStripMenuItem1"
+        Me.ConsultasToolStripMenuItem1.Size = New System.Drawing.Size(197, 36)
+        Me.ConsultasToolStripMenuItem1.Text = "Consultas"
+        '
+        'FosaComunToolStripMenuItem
+        '
+        Me.FosaComunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GESTIONARToolStripMenuItem})
+        Me.FosaComunToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
+        Me.FosaComunToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.FosaComunToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.FosaComunToolStripMenuItem.Name = "FosaComunToolStripMenuItem"
+        Me.FosaComunToolStripMenuItem.Size = New System.Drawing.Size(198, 36)
+        Me.FosaComunToolStripMenuItem.Text = "FOSA COMUN"
+        '
+        'AgregarToolStripMenuItem
+        '
+        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
+        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
+        Me.AgregarToolStripMenuItem.Text = "Agregar"
+        '
+        'GESTIONARToolStripMenuItem
+        '
+        Me.GESTIONARToolStripMenuItem.Name = "GESTIONARToolStripMenuItem"
+        Me.GESTIONARToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
+        Me.GESTIONARToolStripMenuItem.Text = "Gestionar"
+        '
+        'AdquisicionDeEspacioToolStripMenuItem
+        '
+        Me.AdquisicionDeEspacioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultasToolStripMenuItem3, Me.LugaresToolStripMenuItem})
+        Me.AdquisicionDeEspacioToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
+        Me.AdquisicionDeEspacioToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.AdquisicionDeEspacioToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.AdquisicionDeEspacioToolStripMenuItem.Name = "AdquisicionDeEspacioToolStripMenuItem"
+        Me.AdquisicionDeEspacioToolStripMenuItem.Size = New System.Drawing.Size(326, 36)
+        Me.AdquisicionDeEspacioToolStripMenuItem.Text = "ADQUISICION DE ESPACIO"
+        '
+        'ConsultasToolStripMenuItem3
+        '
+        Me.ConsultasToolStripMenuItem3.Name = "ConsultasToolStripMenuItem3"
+        Me.ConsultasToolStripMenuItem3.Size = New System.Drawing.Size(197, 36)
+        Me.ConsultasToolStripMenuItem3.Text = "Consultas"
+        '
+        'LugaresToolStripMenuItem
+        '
+        Me.LugaresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSeccionToolStripMenuItem, Me.AgregarLugarToolStripMenuItem})
+        Me.LugaresToolStripMenuItem.Name = "LugaresToolStripMenuItem"
+        Me.LugaresToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
+        Me.LugaresToolStripMenuItem.Text = "Lugares"
+        '
+        'NuevaSeccionToolStripMenuItem
+        '
+        Me.NuevaSeccionToolStripMenuItem.Name = "NuevaSeccionToolStripMenuItem"
+        Me.NuevaSeccionToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
+        Me.NuevaSeccionToolStripMenuItem.Text = "Nueva seccion"
+        '
+        'AgregarLugarToolStripMenuItem
+        '
+        Me.AgregarLugarToolStripMenuItem.Name = "AgregarLugarToolStripMenuItem"
+        Me.AgregarLugarToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
+        Me.AgregarLugarToolStripMenuItem.Text = "Agregar lugar"
+        '
+        'UsuariosToolStripMenuItem
+        '
+        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.GestionToolStripMenuItem})
+        Me.UsuariosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
+        Me.UsuariosToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.UsuariosToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
+        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
+        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(155, 36)
+        Me.UsuariosToolStripMenuItem.Text = "USUARIOS"
+        '
+        'NuevoToolStripMenuItem1
+        '
+        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
+        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(175, 36)
+        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
+        '
+        'GestionToolStripMenuItem
+        '
+        Me.GestionToolStripMenuItem.Name = "GestionToolStripMenuItem"
+        Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(175, 36)
+        Me.GestionToolStripMenuItem.Text = "Gestion"
         '
         'Desktop
         '
@@ -105,11 +272,10 @@ Partial Class platform
         Me.Principal.BackColor = System.Drawing.Color.Transparent
         Me.Principal.ColumnCount = 1
         Me.Principal.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.Principal.Controls.Add(Me.log_hoy, 0, 2)
-        Me.Principal.Controls.Add(Me.TableLayoutPanel2, 0, 1)
         Me.Principal.Controls.Add(Me.TableLayoutPanel1, 0, 4)
         Me.Principal.Controls.Add(Me.INFORMACION_DE_USUARIO, 0, 3)
         Me.Principal.Controls.Add(Me.TableLayoutPanel3, 0, 0)
+        Me.Principal.Controls.Add(Me.TableLayoutPanel2, 0, 2)
         Me.Principal.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Principal.Location = New System.Drawing.Point(0, 0)
         Me.Principal.Name = "Principal"
@@ -121,122 +287,6 @@ Partial Class platform
         Me.Principal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77.0!))
         Me.Principal.Size = New System.Drawing.Size(1400, 924)
         Me.Principal.TabIndex = 1
-        '
-        'log_hoy
-        '
-        Me.log_hoy.AutoSize = True
-        Me.log_hoy.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.log_hoy.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.log_hoy.ForeColor = System.Drawing.Color.White
-        Me.log_hoy.Location = New System.Drawing.Point(3, 457)
-        Me.log_hoy.Name = "log_hoy"
-        Me.log_hoy.Size = New System.Drawing.Size(1394, 343)
-        Me.log_hoy.TabIndex = 6
-        Me.log_hoy.Text = resources.GetString("log_hoy.Text")
-        Me.log_hoy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.total_hoy, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.totaleles, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 223)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1394, 231)
-        Me.TableLayoutPanel2.TabIndex = 6
-        '
-        'total_hoy
-        '
-        Me.total_hoy.AutoSize = True
-        Me.total_hoy.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.total_hoy.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.total_hoy.ForeColor = System.Drawing.Color.White
-        Me.total_hoy.Location = New System.Drawing.Point(3, 118)
-        Me.total_hoy.Name = "total_hoy"
-        Me.total_hoy.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.total_hoy.Size = New System.Drawing.Size(1388, 113)
-        Me.total_hoy.TabIndex = 5
-        Me.total_hoy.Text = "INGRESOS HOY $ 0.0 MXN"
-        Me.total_hoy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'totaleles
-        '
-        Me.totaleles.BackColor = System.Drawing.Color.Transparent
-        Me.totaleles.ColumnCount = 4
-        Me.totaleles.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.totaleles.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.totaleles.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.totaleles.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.totaleles.Controls.Add(Me.f_comun, 3, 0)
-        Me.totaleles.Controls.Add(Me.exhumanaciones, 2, 0)
-        Me.totaleles.Controls.Add(Me.t_inhumanaciones, 1, 0)
-        Me.totaleles.Controls.Add(Me.l_asignados, 0, 0)
-        Me.totaleles.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.totaleles.Location = New System.Drawing.Point(3, 3)
-        Me.totaleles.Name = "totaleles"
-        Me.totaleles.RowCount = 1
-        Me.totaleles.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.totaleles.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112.0!))
-        Me.totaleles.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112.0!))
-        Me.totaleles.Size = New System.Drawing.Size(1388, 112)
-        Me.totaleles.TabIndex = 0
-        '
-        'f_comun
-        '
-        Me.f_comun.AutoSize = True
-        Me.f_comun.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.f_comun.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.f_comun.ForeColor = System.Drawing.Color.White
-        Me.f_comun.Location = New System.Drawing.Point(1044, 0)
-        Me.f_comun.Name = "f_comun"
-        Me.f_comun.Size = New System.Drawing.Size(341, 112)
-        Me.f_comun.TabIndex = 3
-        Me.f_comun.Text = "TOTAL INHUMANACIONES"
-        Me.f_comun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'exhumanaciones
-        '
-        Me.exhumanaciones.AutoSize = True
-        Me.exhumanaciones.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.exhumanaciones.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.exhumanaciones.ForeColor = System.Drawing.Color.White
-        Me.exhumanaciones.Location = New System.Drawing.Point(697, 0)
-        Me.exhumanaciones.Name = "exhumanaciones"
-        Me.exhumanaciones.Size = New System.Drawing.Size(341, 112)
-        Me.exhumanaciones.TabIndex = 2
-        Me.exhumanaciones.Text = "TOTAL, FOSA COMUN"
-        Me.exhumanaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        't_inhumanaciones
-        '
-        Me.t_inhumanaciones.AutoSize = True
-        Me.t_inhumanaciones.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.t_inhumanaciones.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.t_inhumanaciones.ForeColor = System.Drawing.Color.White
-        Me.t_inhumanaciones.Location = New System.Drawing.Point(350, 0)
-        Me.t_inhumanaciones.Name = "t_inhumanaciones"
-        Me.t_inhumanaciones.Size = New System.Drawing.Size(341, 112)
-        Me.t_inhumanaciones.TabIndex = 1
-        Me.t_inhumanaciones.Text = "EXHUMACIONES REGISTRADAS"
-        Me.t_inhumanaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'l_asignados
-        '
-        Me.l_asignados.AutoSize = True
-        Me.l_asignados.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.l_asignados.Font = New System.Drawing.Font("Segoe UI Semibold", 15.70909!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.l_asignados.ForeColor = System.Drawing.Color.White
-        Me.l_asignados.Location = New System.Drawing.Point(3, 0)
-        Me.l_asignados.Name = "l_asignados"
-        Me.l_asignados.Size = New System.Drawing.Size(341, 112)
-        Me.l_asignados.TabIndex = 0
-        Me.l_asignados.Text = "LUGARES ASIGNADOS"
-        Me.l_asignados.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TableLayoutPanel1
         '
@@ -371,6 +421,7 @@ Partial Class platform
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.White
@@ -384,6 +435,7 @@ Partial Class platform
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
@@ -397,9 +449,10 @@ Partial Class platform
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.78182!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Image = Global.PanteonMunicipal.My.Resources.Resources._1
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
@@ -407,163 +460,256 @@ Partial Class platform
         Me.Label4.TabIndex = 7
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ToolStripMenuItem1
+        'TableLayoutPanel2
         '
-        Me.ToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrincipalToolStripMenuItem, Me.PapeleraToolStripMenuItem, Me.ToolStripMenuItem2})
-        Me.ToolStripMenuItem1.Font = New System.Drawing.Font("Segoe UI", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ToolStripMenuItem1.ForeColor = System.Drawing.Color.Black
-        Me.ToolStripMenuItem1.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(144, 36)
-        Me.ToolStripMenuItem1.Text = "ARCHIVO"
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel5, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label8, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label7, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 223)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 507.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1394, 574)
+        Me.TableLayoutPanel2.TabIndex = 8
         '
-        'PrincipalToolStripMenuItem
+        'Label7
         '
-        Me.PrincipalToolStripMenuItem.Name = "PrincipalToolStripMenuItem"
-        Me.PrincipalToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
-        Me.PrincipalToolStripMenuItem.Text = "Principal"
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.29091!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(3, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(691, 67)
+        Me.Label7.TabIndex = 0
+        Me.Label7.Text = "SERVICIO"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ToolStripMenuItem2
+        'Label8
         '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(184, 36)
-        Me.ToolStripMenuItem2.Text = "Salir"
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.29091!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(700, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(691, 67)
+        Me.Label8.TabIndex = 1
+        Me.Label8.Text = "COSTO"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'InhumacionToolStripMenuItem
+        'TableLayoutPanel4
         '
-        Me.InhumacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AltaToolStripMenuItem, Me.ConsultasToolStripMenuItem, Me.PagosToolStripMenuItem})
-        Me.InhumacionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
-        Me.InhumacionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.InhumacionToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.InhumacionToolStripMenuItem.Name = "InhumacionToolStripMenuItem"
-        Me.InhumacionToolStripMenuItem.Size = New System.Drawing.Size(196, 36)
-        Me.InhumacionToolStripMenuItem.Text = "INHUMACION"
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.Label14, 0, 5)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label13, 0, 4)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label12, 0, 3)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label11, 0, 2)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label10, 0, 1)
+        Me.TableLayoutPanel4.Controls.Add(Me.Label9, 0, 0)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 70)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 6
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.86207!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.13793!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(691, 501)
+        Me.TableLayoutPanel4.TabIndex = 2
         '
-        'AltaToolStripMenuItem
+        'TableLayoutPanel5
         '
-        Me.AltaToolStripMenuItem.Name = "AltaToolStripMenuItem"
-        Me.AltaToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.AltaToolStripMenuItem.Text = "Alta"
+        Me.TableLayoutPanel5.ColumnCount = 1
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel5.Controls.Add(Me.Label20, 0, 5)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label15, 0, 0)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label16, 0, 1)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label17, 0, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label18, 0, 3)
+        Me.TableLayoutPanel5.Controls.Add(Me.Label19, 0, 4)
+        Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(700, 70)
+        Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
+        Me.TableLayoutPanel5.RowCount = 6
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.86207!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.13793!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(691, 501)
+        Me.TableLayoutPanel5.TabIndex = 3
         '
-        'ConsultasToolStripMenuItem
+        'Label9
         '
-        Me.ConsultasToolStripMenuItem.Name = "ConsultasToolStripMenuItem"
-        Me.ConsultasToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.ConsultasToolStripMenuItem.Text = "Consultas"
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(3, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(685, 110)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Construcción de fosas o capillas"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'PagosToolStripMenuItem
+        'Label10
         '
-        Me.PagosToolStripMenuItem.Name = "PagosToolStripMenuItem"
-        Me.PagosToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.PagosToolStripMenuItem.Text = "Pagos"
+        Me.Label10.AutoSize = True
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(3, 110)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(685, 86)
+        Me.Label10.TabIndex = 1
+        Me.Label10.Text = "Perpetuidad por 7 años área sencilla"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'ExhumacionToolStripMenuItem
+        'Label11
         '
-        Me.ExhumacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.ConsultasToolStripMenuItem1})
-        Me.ExhumacionToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
-        Me.ExhumacionToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.ExhumacionToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.ExhumacionToolStripMenuItem.Name = "ExhumacionToolStripMenuItem"
-        Me.ExhumacionToolStripMenuItem.Size = New System.Drawing.Size(198, 36)
-        Me.ExhumacionToolStripMenuItem.Text = "EXHUMACION"
+        Me.Label11.AutoSize = True
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(3, 196)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(685, 87)
+        Me.Label11.TabIndex = 2
+        Me.Label11.Text = "Perpetuidad por 7 años área doble"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'NuevoToolStripMenuItem
+        'Label12
         '
-        Me.NuevoToolStripMenuItem.Name = "NuevoToolStripMenuItem"
-        Me.NuevoToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.NuevoToolStripMenuItem.Text = "Nuevo"
+        Me.Label12.AutoSize = True
+        Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(3, 283)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(685, 79)
+        Me.Label12.TabIndex = 3
+        Me.Label12.Text = "Compra de espacio 20x40"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'ConsultasToolStripMenuItem1
+        'Label13
         '
-        Me.ConsultasToolStripMenuItem1.Name = "ConsultasToolStripMenuItem1"
-        Me.ConsultasToolStripMenuItem1.Size = New System.Drawing.Size(197, 36)
-        Me.ConsultasToolStripMenuItem1.Text = "Consultas"
+        Me.Label13.AutoSize = True
+        Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.Location = New System.Drawing.Point(3, 362)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(685, 78)
+        Me.Label13.TabIndex = 4
+        Me.Label13.Text = "Inhumación"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'FosaComunToolStripMenuItem
+        'Label14
         '
-        Me.FosaComunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarToolStripMenuItem, Me.GESTIONARToolStripMenuItem})
-        Me.FosaComunToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
-        Me.FosaComunToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.FosaComunToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.FosaComunToolStripMenuItem.Name = "FosaComunToolStripMenuItem"
-        Me.FosaComunToolStripMenuItem.Size = New System.Drawing.Size(198, 36)
-        Me.FosaComunToolStripMenuItem.Text = "FOSA COMUN"
+        Me.Label14.AutoSize = True
+        Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.White
+        Me.Label14.Location = New System.Drawing.Point(3, 440)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(685, 61)
+        Me.Label14.TabIndex = 5
+        Me.Label14.Text = "Exhumación"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'AdquisicionDeEspacioToolStripMenuItem
+        'Label15
         '
-        Me.AdquisicionDeEspacioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConsultasToolStripMenuItem3, Me.LugaresToolStripMenuItem})
-        Me.AdquisicionDeEspacioToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
-        Me.AdquisicionDeEspacioToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.AdquisicionDeEspacioToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.AdquisicionDeEspacioToolStripMenuItem.Name = "AdquisicionDeEspacioToolStripMenuItem"
-        Me.AdquisicionDeEspacioToolStripMenuItem.Size = New System.Drawing.Size(326, 36)
-        Me.AdquisicionDeEspacioToolStripMenuItem.Text = "ADQUISICION DE ESPACIO"
+        Me.Label15.AutoSize = True
+        Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(3, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(685, 110)
+        Me.Label15.TabIndex = 6
+        Me.Label15.Text = "$ 778.00 Mxn"
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'ConsultasToolStripMenuItem3
+        'Label16
         '
-        Me.ConsultasToolStripMenuItem3.Name = "ConsultasToolStripMenuItem3"
-        Me.ConsultasToolStripMenuItem3.Size = New System.Drawing.Size(197, 36)
-        Me.ConsultasToolStripMenuItem3.Text = "Consultas"
+        Me.Label16.AutoSize = True
+        Me.Label16.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.White
+        Me.Label16.Location = New System.Drawing.Point(3, 110)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(685, 86)
+        Me.Label16.TabIndex = 7
+        Me.Label16.Text = "$ 389.00 Mxn"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'LugaresToolStripMenuItem
+        'Label17
         '
-        Me.LugaresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevaSeccionToolStripMenuItem, Me.AgregarLugarToolStripMenuItem})
-        Me.LugaresToolStripMenuItem.Name = "LugaresToolStripMenuItem"
-        Me.LugaresToolStripMenuItem.Size = New System.Drawing.Size(197, 36)
-        Me.LugaresToolStripMenuItem.Text = "Lugares"
+        Me.Label17.AutoSize = True
+        Me.Label17.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(3, 196)
+        Me.Label17.Name = "Label17"
+        Me.Label17.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label17.Size = New System.Drawing.Size(685, 87)
+        Me.Label17.TabIndex = 8
+        Me.Label17.Text = "$ 680.00 Mxn"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'NuevaSeccionToolStripMenuItem
+        'Label18
         '
-        Me.NuevaSeccionToolStripMenuItem.Name = "NuevaSeccionToolStripMenuItem"
-        Me.NuevaSeccionToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
-        Me.NuevaSeccionToolStripMenuItem.Text = "Nueva seccion"
+        Me.Label18.AutoSize = True
+        Me.Label18.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(3, 283)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(685, 79)
+        Me.Label18.TabIndex = 9
+        Me.Label18.Text = "$ 778.00 Mxn"
+        Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'AgregarLugarToolStripMenuItem
+        'Label19
         '
-        Me.AgregarLugarToolStripMenuItem.Name = "AgregarLugarToolStripMenuItem"
-        Me.AgregarLugarToolStripMenuItem.Size = New System.Drawing.Size(249, 36)
-        Me.AgregarLugarToolStripMenuItem.Text = "Agregar lugar"
+        Me.Label19.AutoSize = True
+        Me.Label19.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(3, 362)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(685, 78)
+        Me.Label19.TabIndex = 10
+        Me.Label19.Text = "$ 389.00 Mxn"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'UsuariosToolStripMenuItem
+        'Label20
         '
-        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem1, Me.GestionToolStripMenuItem})
-        Me.UsuariosToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 15.70909!)
-        Me.UsuariosToolStripMenuItem.ForeColor = System.Drawing.Color.Black
-        Me.UsuariosToolStripMenuItem.Image = Global.PanteonMunicipal.My.Resources.Resources.iconfinder_abstract_symbol_09_1571981__2_
-        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(155, 36)
-        Me.UsuariosToolStripMenuItem.Text = "USUARIOS"
-        '
-        'NuevoToolStripMenuItem1
-        '
-        Me.NuevoToolStripMenuItem1.Name = "NuevoToolStripMenuItem1"
-        Me.NuevoToolStripMenuItem1.Size = New System.Drawing.Size(175, 36)
-        Me.NuevoToolStripMenuItem1.Text = "Nuevo"
-        '
-        'GestionToolStripMenuItem
-        '
-        Me.GestionToolStripMenuItem.Name = "GestionToolStripMenuItem"
-        Me.GestionToolStripMenuItem.Size = New System.Drawing.Size(175, 36)
-        Me.GestionToolStripMenuItem.Text = "Gestion"
-        '
-        'GESTIONARToolStripMenuItem
-        '
-        Me.GESTIONARToolStripMenuItem.Name = "GESTIONARToolStripMenuItem"
-        Me.GESTIONARToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
-        Me.GESTIONARToolStripMenuItem.Text = "Gestionar"
-        '
-        'AgregarToolStripMenuItem
-        '
-        Me.AgregarToolStripMenuItem.Name = "AgregarToolStripMenuItem"
-        Me.AgregarToolStripMenuItem.Size = New System.Drawing.Size(195, 36)
-        Me.AgregarToolStripMenuItem.Text = "Agregar"
-        '
-        'PapeleraToolStripMenuItem
-        '
-        Me.PapeleraToolStripMenuItem.Name = "PapeleraToolStripMenuItem"
-        Me.PapeleraToolStripMenuItem.Size = New System.Drawing.Size(184, 36)
-        Me.PapeleraToolStripMenuItem.Text = "Papelera"
+        Me.Label20.AutoSize = True
+        Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.70909!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(3, 440)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(685, 61)
+        Me.Label20.TabIndex = 11
+        Me.Label20.Text = "$ 389.00 Mxn"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'platform
         '
@@ -583,14 +729,16 @@ Partial Class platform
         Me.Desktop.ResumeLayout(False)
         Me.Principal.ResumeLayout(False)
         Me.Principal.PerformLayout()
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
-        Me.totaleles.ResumeLayout(False)
-        Me.totaleles.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
+        Me.TableLayoutPanel5.ResumeLayout(False)
+        Me.TableLayoutPanel5.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -616,11 +764,6 @@ Partial Class platform
     Friend WithEvents LugaresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NuevaSeccionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AgregarLugarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents totaleles As TableLayoutPanel
-    Friend WithEvents f_comun As Label
-    Friend WithEvents exhumanaciones As Label
-    Friend WithEvents t_inhumanaciones As Label
-    Friend WithEvents l_asignados As Label
     Friend WithEvents Principal As TableLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents name_user As Label
@@ -629,9 +772,6 @@ Partial Class platform
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents log_hoy As Label
-    Friend WithEvents total_hoy As Label
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Label6 As Label
     Friend WithEvents Label4 As Label
@@ -641,4 +781,21 @@ Partial Class platform
     Friend WithEvents AgregarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GESTIONARToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PapeleraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class

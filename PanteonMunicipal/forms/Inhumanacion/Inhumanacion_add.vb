@@ -6,8 +6,12 @@
         If String.IsNullOrEmpty(TxtAdjuntar.Text) = False Then
             If f.DifundoAdd(TxtNombre, TxtSexo, TxtZona, TxtPerpetuidad, TxtNoTumba, TxtFechaNacimiento, TxtFechaDefunsion, TxtFechaRegistro, TxtTipoTumba, TxtAdjuntar, TxtNombreResponsable, TxtDireccionResponsable, TxtTelefonoResponsable) Then
                 __Pdf.LoadFile("DONTEXISTS.pdf")
-                'Inicia proceso de pago
-                f.InhumanacionPagar(f.InhumanacionLastID())
+
+                Dim form As New Inhumanacion_add_last
+                form.id = f.InhumanacionLastID()
+                form._date()
+                form.Show()
+
             End If
         Else
             f.Mensaje("Cargue una acta de defunsion", MsgBoxStyle.Exclamation)

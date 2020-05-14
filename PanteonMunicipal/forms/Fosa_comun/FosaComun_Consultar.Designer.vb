@@ -34,6 +34,7 @@ Partial Class FosaComun_Consultar
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TxtSearch = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.Table, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,39 +55,41 @@ Partial Class FosaComun_Consultar
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.407035!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.54272!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1013, 727)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1250, 727)
         Me.TableLayoutPanel1.TabIndex = 1
         '
         'TableLayoutPanel3
         '
-        Me.TableLayoutPanel3.ColumnCount = 6
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Button3, 0, 0)
+        Me.TableLayoutPanel3.ColumnCount = 7
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Button4, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Button2, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Button8, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button6, 5, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button5, 4, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button7, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button6, 6, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button5, 5, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button7, 4, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button3, 3, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 656)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1007, 68)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1244, 68)
         Me.TableLayoutPanel3.TabIndex = 2
         '
         'Button3
         '
         Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(337, 3)
+        Me.Button3.Location = New System.Drawing.Point(534, 3)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(161, 62)
+        Me.Button3.Size = New System.Drawing.Size(171, 62)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "DETALLES"
         Me.Button3.UseVisualStyleBackColor = True
@@ -95,9 +98,9 @@ Partial Class FosaComun_Consultar
         '
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(170, 3)
+        Me.Button2.Location = New System.Drawing.Point(180, 3)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(161, 62)
+        Me.Button2.Size = New System.Drawing.Size(171, 62)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "AGREGAR"
         Me.Button2.UseVisualStyleBackColor = True
@@ -108,7 +111,7 @@ Partial Class FosaComun_Consultar
         Me.Button8.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button8.Location = New System.Drawing.Point(3, 3)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(161, 62)
+        Me.Button8.Size = New System.Drawing.Size(171, 62)
         Me.Button8.TabIndex = 0
         Me.Button8.Text = "GENERAR REPORTE"
         Me.Button8.UseVisualStyleBackColor = True
@@ -117,9 +120,9 @@ Partial Class FosaComun_Consultar
         '
         Me.Button6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button6.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(838, 3)
+        Me.Button6.Location = New System.Drawing.Point(1065, 3)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(166, 62)
+        Me.Button6.Size = New System.Drawing.Size(176, 62)
         Me.Button6.TabIndex = 4
         Me.Button6.Text = "ACTUALIZAR"
         Me.Button6.UseVisualStyleBackColor = True
@@ -128,9 +131,9 @@ Partial Class FosaComun_Consultar
         '
         Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(671, 3)
+        Me.Button5.Location = New System.Drawing.Point(888, 3)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(161, 62)
+        Me.Button5.Size = New System.Drawing.Size(171, 62)
         Me.Button5.TabIndex = 3
         Me.Button5.Text = "ELIMINAR"
         Me.Button5.UseVisualStyleBackColor = True
@@ -139,9 +142,9 @@ Partial Class FosaComun_Consultar
         '
         Me.Button7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Button7.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(504, 3)
+        Me.Button7.Location = New System.Drawing.Point(711, 3)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(161, 62)
+        Me.Button7.Size = New System.Drawing.Size(171, 62)
         Me.Button7.TabIndex = 1
         Me.Button7.Text = "EDITAR"
         Me.Button7.UseVisualStyleBackColor = True
@@ -152,7 +155,7 @@ Partial Class FosaComun_Consultar
         Me.Table.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Table.Location = New System.Drawing.Point(3, 49)
         Me.Table.Name = "Table"
-        Me.Table.Size = New System.Drawing.Size(1007, 601)
+        Me.Table.Size = New System.Drawing.Size(1244, 601)
         Me.Table.TabIndex = 4
         '
         'TableLayoutPanel2
@@ -167,7 +170,7 @@ Partial Class FosaComun_Consultar
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1007, 40)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1244, 40)
         Me.TableLayoutPanel2.TabIndex = 5
         '
         'TxtSearch
@@ -177,7 +180,7 @@ Partial Class FosaComun_Consultar
         Me.TxtSearch.ForeColor = System.Drawing.Color.Maroon
         Me.TxtSearch.Location = New System.Drawing.Point(3, 3)
         Me.TxtSearch.Name = "TxtSearch"
-        Me.TxtSearch.Size = New System.Drawing.Size(749, 39)
+        Me.TxtSearch.Size = New System.Drawing.Size(927, 39)
         Me.TxtSearch.TabIndex = 5
         Me.TxtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -186,18 +189,29 @@ Partial Class FosaComun_Consultar
         Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(758, 3)
+        Me.Button1.Location = New System.Drawing.Point(936, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(246, 39)
+        Me.Button1.Size = New System.Drawing.Size(305, 39)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "BUSCAR"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button4.Font = New System.Drawing.Font("Segoe UI Semibold", 11.78182!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(357, 3)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(171, 62)
+        Me.Button4.TabIndex = 7
+        Me.Button4.Text = "A. DOCUMENTO"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'FosaComun_Consultar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1013, 727)
+        Me.ClientSize = New System.Drawing.Size(1250, 727)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "FosaComun_Consultar"
         Me.Text = "FosaComun_Consultar"
@@ -222,4 +236,5 @@ Partial Class FosaComun_Consultar
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents TxtSearch As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button4 As Button
 End Class
